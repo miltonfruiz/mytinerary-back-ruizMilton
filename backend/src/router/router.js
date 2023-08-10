@@ -10,3 +10,4 @@ router.get("/clients", (req, res) => {
     },
   });
 });
+module.exports = router;
