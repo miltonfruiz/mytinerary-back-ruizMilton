@@ -1,13 +1,6 @@
-const express = requiere("express");
+const express = require("express");
 const router = express.Router();
 
-router.get("/clients", (req, res) => {
-  res.json({
-    clients: {
-      name: "john",
-      lastname: "johnson",
-      age: "16",
-    },
-  });
-});
+router.get("/clients");
+
 module.exports = router;
