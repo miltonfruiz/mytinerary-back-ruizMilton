@@ -1,5 +1,5 @@
-# mytinerary-ruiz
+# mytinerary-back-ruizMilton
 
 ## Bienvenidos, soy Milton Franco Ruiz.
 
-#Repositorio creado para actividades del Curso Argentina Programa 4.0 + Mindhub Mern 06 TT
+#Repositorio creado para actividades de Sprint N° 2
