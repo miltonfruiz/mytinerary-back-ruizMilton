@@ -7,6 +7,7 @@ const getClients = (req, res) => {
   });
 };
 const getClient = (req, res) => {
-  res.json({ name: "john", lastname: "johnson", age: "16" });
+  const { id } = req.params;
+  res.json({ name: "john", lastname: "johnson", age: "16", paramsId: id });
 };
 module.exports = { getClients, getClient };
