@@ -8,6 +8,17 @@ const getClients = (req, res) => {
 };
 const getClient = (req, res) => {
   const { id } = req.params;
-  res.json({ name: "john", lastname: "johnson", age: "16", paramsId: id });
+  const { data } = req.query;
+  if (data) {
+    res.json({
+      name: "john",
+      lastname: "johnson",
+      age: "16",
+      paramsId: id,
+      queryData: data,
+    });
+  } else {
+    res.json({ name: "john", lastname: "johnson", age: "16", paramsId: id });
+  }
 };
 module.exports = { getClients, getClient };
