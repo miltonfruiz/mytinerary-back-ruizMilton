@@ -1,6 +1,9 @@
 const getClients = (req, res) => {
   res.json({
-    clients: [{ name: "john", lastname: "johnson", age: "16" }],
+    clients: [
+      { name: "John", lastname: "johnson", age: "16" },
+      { name: "Peter", lastname: "johnson", age: "18" },
+    ],
   });
 };
 const getClient = (req, res) => {
