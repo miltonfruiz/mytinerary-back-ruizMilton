@@ -16,5 +16,5 @@ const schemaClient = new Schema({
   empresa_BelongTo: { type: Types.ObjectId, ref: "Empresa" },
 });
 
-const Client = model("Cliente", schemaClient);
+const Client = model("Client", schemaClient);
 module.exports = Client;
