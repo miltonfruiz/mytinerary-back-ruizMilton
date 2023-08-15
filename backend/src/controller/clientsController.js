@@ -8,19 +8,13 @@ const getClients = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
-const getClient = (req, res) => {
-  const { id } = req.params;
-  const { data } = req.query;
-  if (data) {
-    res.json({
-      name: "john",
-      lastname: "johnson",
-      age: "16",
-      paramsId: id,
-      queryData: data,
-    });
-  } else {
-    res.json({ name: "john", lastname: "johnson", age: "16", paramsId: id });
+const getClient = async (req, res) => {
+  try {
+    let { id } = req.params;
+    let foundClient = await Client.findById(id);
+    res.status(200).json(foundClient);
+  } catch (err) {
+    res.status(500).json({ message: err });
   }
 };
 const addClient = async (req, res) => {
@@ -35,4 +29,32 @@ const addClient = async (req, res) => {
     res.status(500).json({ message: err });
   }
 };
-module.exports = { getClients, getClient, addClient };
+const deleteClient = async (req, res) => {
+  try {
+    let { id } = req.query;
+    await Client.deleteOne({ _id: id });
+    res.status(201).json({
+      message: "client has been deleted",
+    });
+  } catch (err) {
+    res.status(500).json({ message: err });
+  }
+};
+const updateClient = async (req, res) => {
+  try {
+    let { id } = req.query;
+    await Client.findByIdAndUpdate(id, { name: "Nombre nuevo" });
+    res.status(201).json({
+      message: "client has been updated",
+    });
+  } catch (err) {
+    res.status(500).json({ message: err });
+  }
+};
+module.exports = {
+  getClients,
+  getClient,
+  addClient,
+  deleteClient,
+  updateClient,
+};

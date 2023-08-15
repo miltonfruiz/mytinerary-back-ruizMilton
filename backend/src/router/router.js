@@ -9,8 +9,8 @@ const {
 const { verifyDataClient } = require("../middlewares/verification");
 
 router.get("/clients", getClients);
-router.get("/client/:id", getClient);
+router.get("/clients/:id", getClient);
 router.post("/clients", verifyDataClient, addClient);
-router.post("/clients", verifyDataClient, deleteClient);
+router.delete("/clients", verifyDataClient, deleteClient);
 
 module.exports = router;
