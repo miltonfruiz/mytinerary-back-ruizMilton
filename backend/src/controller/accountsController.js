@@ -21,4 +21,14 @@ const addAccount = async (req, res) => {
     res.status(400).json({ message: e.message });
   }
 };
+
+// const addCollection = async (req, res) => {
+//   try {
+//     let { collection } = req.body;
+//     await Account.insertMany(collection);
+//     res.status(200).json({ message: "Collection has been added succesfully" });
+//   } catch (e) {
+//     res.status(400).json({ message: e.message });
+//   }
+// };
 module.exports = { addAccount };
