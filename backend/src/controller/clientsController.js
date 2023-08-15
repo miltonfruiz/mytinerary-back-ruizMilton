@@ -23,9 +23,13 @@ const getClient = (req, res) => {
     res.json({ name: "john", lastname: "johnson", age: "16", paramsId: id });
   }
 };
-const addClient = (req, res) => {
+const addClient = async (req, res) => {
+  let payload = req.body;
+  //let querys = req.query;
+  let createClient = await Client.create(payload);
   res.status(201).json({
     message: "client has been added",
+    client: createClient,
   });
 };
 
