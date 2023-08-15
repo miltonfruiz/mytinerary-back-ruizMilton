@@ -13,7 +13,12 @@ const schemaClient = new Schema({
     type: Number,
     required: true,
   },
-  empresa_BelongTo: { type: Types.ObjectId, ref: "Empresa" },
+  accounts: [
+    {
+      type: Types.ObjectId,
+      ref: "Account",
+    },
+  ],
 });
 
 const Client = model("Client", schemaClient);
