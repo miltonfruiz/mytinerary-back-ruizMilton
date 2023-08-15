@@ -24,13 +24,15 @@ const getClient = (req, res) => {
   }
 };
 const addClient = async (req, res) => {
-  let payload = req.body;
-  //let querys = req.query;
-  let createClient = await Client.create(payload);
-  res.status(201).json({
-    message: "client has been added",
-    client: createClient,
-  });
+  try {
+    let payload = req.body;
+    let createClient = await Client.create(payload);
+    res.status(201).json({
+      message: "client has been added",
+      client: createClient,
+    });
+  } catch (err) {
+    res.status(500).json({ message: err });
+  }
 };
-
 module.exports = { getClients, getClient, addClient };
