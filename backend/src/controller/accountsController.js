@@ -21,7 +21,6 @@ const addAccount = async (req, res) => {
     res.status(400).json({ message: e.message });
   }
 };
-
 // const addCollection = async (req, res) => {
 //   try {
 //     let { collection } = req.body;
