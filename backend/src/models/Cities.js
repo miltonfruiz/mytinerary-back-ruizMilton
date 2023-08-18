@@ -35,5 +35,5 @@ const schemaCities = new Schema({
   },
 });
 
-const Cities = model("Client", schemaCities);
+const Cities = model("Cities", schemaCities);
 module.exports = Cities;
