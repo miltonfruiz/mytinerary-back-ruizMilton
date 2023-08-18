@@ -7,6 +7,5 @@ const schemaAccount = new Schema({
   },
   _client: { type: Types.ObjectId, ref: "Client" },
 });
-
 const Account = model("Account", schemaAccount);
 module.exports = Account;
