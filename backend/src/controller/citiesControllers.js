@@ -38,4 +38,21 @@ const deleteCities = async (req, res) => {
     res.status(500).json({ message: err });
   }
 };
-module.exports = { getCities, getCitiesId, addCities, deleteCities };
+const updateCities = async (req, res) => {
+  try {
+    let { id } = req.query;
+    await Cities.findByIdAndUpdate(id, { name: "New name" });
+    res.status(201).json({
+      message: "cities has been updated",
+    });
+  } catch (err) {
+    res.status(500).json({ message: err });
+  }
+};
+module.exports = {
+  getCities,
+  getCitiesId,
+  addCities,
+  deleteCities,
+  updateCities,
+};
