@@ -29,4 +29,13 @@ const addCities = async (req, res) => {
     res.status(500).json({ message: err });
   }
 };
-module.exports = { getCities, getCitiesId, addCities };
+const deleteCities = async (req, res) => {
+  try {
+    let { id } = req.query;
+    await Cities.deleteOne({ _id: id });
+    res.status(201).json({ message: "cities has been deleted" });
+  } catch (err) {
+    res.status(500).json({ message: err });
+  }
+};
+module.exports = { getCities, getCitiesId, addCities, deleteCities };
