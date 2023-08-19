@@ -17,5 +17,16 @@ const getCitiesId = async (req, res) => {
     res.status(500).json({ message: err });
   }
 };
-
-module.exports = { getCities, getCitiesId };
+const addCities = async (req, res) => {
+  try {
+    let payload = req.body;
+    let createCities = await Cities.create(payload);
+    res.status(201).json({
+      message: "cities has been added",
+      cities: createCities,
+    });
+  } catch (err) {
+    res.status(500).json({ message: err });
+  }
+};
+module.exports = { getCities, getCitiesId, addCities };
