@@ -2,17 +2,17 @@ const express = require("express");
 const router = express.Router();
 const {
   getCities,
-  getClients,
+  getCitiesId,
   addClient,
   deleteClient,
   updateClient,
-} = require("../controller/clientsController");
+} = require("../controller/citiesControllers");
 
 const { verifyDataClient } = require("../middlewares/verification");
 const { addAccount } = require("../controller/accountsController");
 
 router.get("/cities", getCities);
-// router.get("/clients/:id", getClient);
+router.get("/cities/:id", getCitiesId);
 // router.post("/clients", verifyDataClient, addClient);
 // router.delete("/clients", verifyDataClient, deleteClient);
 // router.put("/clients", verifyDataClient, updateClient);
