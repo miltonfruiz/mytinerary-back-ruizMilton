@@ -10,31 +10,31 @@ const cityDataVerification = (req, res, next) => {
     !monument ||
     !description
   ) {
-    return res.status(400).json({ message: "invalid data" });
+    return res.status(400).json({ message: "x ¡Invalid data! x" });
   }
   if (city == "") {
-    return res.status(400).json({ message: "invalid city" });
+    return res.status(400).json({ message: "x ¡Invalid city! x" });
   }
   if (country == "") {
-    return res.status(400).json({ message: "invalid country" });
+    return res.status(400).json({ message: "x ¡Invalid country! x" });
   }
   if (images == "") {
-    return res.status(400).json({ message: "invalid image" });
+    return res.status(400).json({ message: "x ¡Invalid image! x" });
   }
   if (region == "") {
-    return res.status(400).json({ message: "invalid region" });
+    return res.status(400).json({ message: "x ¡Invalid region! x" });
   }
   if (population == 0) {
-    return res.status(400).json({ message: "invalid population" });
+    return res.status(400).json({ message: "x ¡Invalid population! x" });
   }
   if (money == "") {
-    return res.status(400).json({ message: "invalid money" });
+    return res.status(400).json({ message: "x ¡Invalid money! x" });
   }
   if (monument == "") {
-    return res.status(400).json({ message: "invalid monument" });
+    return res.status(400).json({ message: "x ¡Invalid monument! x" });
   }
   if (description == "") {
-    return res.status(400).json({ message: "invalid description" });
+    return res.status(400).json({ message: "x ¡Invalid description! x" });
   }
   next();
 };
