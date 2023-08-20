@@ -1,58 +1,58 @@
-const Cities = require("../models/City");
+const City = require("../models/City");
 
-const getCities = async (req, res) => {
+const getCity = async (req, res) => {
   try {
-    let cities = await Cities.find();
-    res.status(200).json(cities);
+    let city = await City.find();
+    res.status(200).json(city);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
 };
-const getCitiesId = async (req, res) => {
+const getCityId = async (req, res) => {
   try {
     let { id } = req.params;
-    let foundCities = await Cities.findById(id);
-    res.status(200).json(foundCities);
+    let foundCity = await City.findById(id);
+    res.status(200).json(foundCity);
   } catch (err) {
     res.status(500).json({ message: err });
   }
 };
-const addCities = async (req, res) => {
+const addCity = async (req, res) => {
   try {
     let payload = req.body;
-    let createCities = await Cities.create(payload);
+    let createCity = await City.create(payload);
     res.status(201).json({
-      message: "cities has been added",
-      cities: createCities,
+      message: "city has been added",
+      city: createCity,
     });
   } catch (err) {
     res.status(500).json({ message: err });
   }
 };
-const deleteCities = async (req, res) => {
+const deleteCity = async (req, res) => {
   try {
     let { id } = req.query;
-    await Cities.deleteOne({ _id: id });
-    res.status(201).json({ message: "cities has been deleted" });
+    await City.deleteOne({ _id: id });
+    res.status(201).json({ message: "city has been deleted" });
   } catch (err) {
     res.status(500).json({ message: err });
   }
 };
-const updateCities = async (req, res) => {
+const updateCity = async (req, res) => {
   try {
     let { id } = req.query;
-    await Cities.findByIdAndUpdate(id, { name: "New name" });
+    await City.findByIdAndUpdate(id, { city: "New city" });
     res.status(201).json({
-      message: "cities has been updated",
+      message: "city has been updated",
     });
   } catch (err) {
     res.status(500).json({ message: err });
   }
 };
 module.exports = {
-  getCities,
-  getCitiesId,
-  addCities,
-  deleteCities,
-  updateCities,
+  getCity,
+  getCityId,
+  addCity,
+  deleteCity,
+  updateCity,
 };
