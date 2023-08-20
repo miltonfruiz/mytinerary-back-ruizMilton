@@ -1,17 +1,41 @@
-const verifyDataClient = (req, res, next) => {
-  let { name, lastName, age } = req.body;
-  if (!name || !lastName || !age) {
+const verifyDataCities = (req, res, next) => {
+  let { city, country, age } = req.body;
+  if (
+    !city ||
+    !country ||
+    !images ||
+    !region ||
+    !population ||
+    !money ||
+    !monument ||
+    !description
+  ) {
     return res.status(400).json({ message: "invalid data" });
   }
-  if (name == "") {
-    return res.status(400).json({ message: "invalid name" });
+  if (city == "") {
+    return res.status(400).json({ message: "invalid city" });
   }
-  if (lastName == "") {
-    return res.status(400).json({ message: "invalid lastName" });
+  if (country == "") {
+    return res.status(400).json({ message: "invalid country" });
   }
-  if (age == 0) {
-    return res.status(400).json({ message: "invalid age" });
+  if (images == "") {
+    return res.status(400).json({ message: "invalid image" });
+  }
+  if (region == "") {
+    return res.status(400).json({ message: "invalid region" });
+  }
+  if (population == 0) {
+    return res.status(400).json({ message: "invalid population" });
+  }
+  if (money == "") {
+    return res.status(400).json({ message: "invalid money" });
+  }
+  if (monument == "") {
+    return res.status(400).json({ message: "invalid monument" });
+  }
+  if (description == "") {
+    return res.status(400).json({ message: "invalid description" });
   }
   next();
 };
-module.exports = { verifyDataClient };
+module.exports = { verifyDataCities };
