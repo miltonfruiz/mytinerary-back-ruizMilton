@@ -4,8 +4,8 @@ const getCity = async (req, res) => {
   try {
     let city = await City.find();
     res.status(200).json(city);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
   }
 };
 const getCityId = async (req, res) => {
@@ -13,8 +13,8 @@ const getCityId = async (req, res) => {
     let { id } = req.params;
     let foundCity = await City.findById(id);
     res.status(200).json(foundCity);
-  } catch (err) {
-    res.status(500).json({ message: err });
+  } catch (error) {
+    res.status(500).json({ message: error });
   }
 };
 const addCity = async (req, res) => {
@@ -25,8 +25,8 @@ const addCity = async (req, res) => {
       message: "city has been added",
       city: createCity,
     });
-  } catch (err) {
-    res.status(500).json({ message: err });
+  } catch (error) {
+    res.status(500).json({ message: error });
   }
 };
 const deleteCity = async (req, res) => {
@@ -34,8 +34,8 @@ const deleteCity = async (req, res) => {
     let { id } = req.query;
     await City.deleteOne({ _id: id });
     res.status(201).json({ message: "city has been deleted" });
-  } catch (err) {
-    res.status(500).json({ message: err });
+  } catch (error) {
+    res.status(500).json({ message: error });
   }
 };
 const updateCity = async (req, res) => {
@@ -45,8 +45,8 @@ const updateCity = async (req, res) => {
     res.status(201).json({
       message: "city has been updated",
     });
-  } catch (err) {
-    res.status(500).json({ message: err });
+  } catch (error) {
+    res.status(500).json({ message: error });
   }
 };
 module.exports = {
