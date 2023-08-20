@@ -1,4 +1,4 @@
-const verifyDataCities = (req, res, next) => {
+const cityDataVerification = (req, res, next) => {
   let { city, country, age } = req.body;
   if (
     !city ||
@@ -38,4 +38,4 @@ const verifyDataCities = (req, res, next) => {
   }
   next();
 };
-module.exports = { verifyDataCities };
+module.exports = { cityDataVerification };
