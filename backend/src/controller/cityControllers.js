@@ -17,12 +17,12 @@ const getCityId = async (req, res) => {
     res.status(500).json({ message: error });
   }
 };
-const addCity = async (req, res) => {
+const postCity = async (req, res) => {
   try {
     let payload = req.body;
     let createCity = await City.create(payload);
     res.status(201).json({
-      message: "city has been added",
+      message: "The city has been added successfully!",
       city: createCity,
     });
   } catch (error) {
@@ -33,7 +33,9 @@ const deleteCity = async (req, res) => {
   try {
     let { id } = req.query;
     await City.deleteOne({ _id: id });
-    res.status(201).json({ message: "city has been deleted" });
+    res
+      .status(201)
+      .json({ message: "The city has been deleted successfully!" });
   } catch (error) {
     res.status(500).json({ message: error });
   }
@@ -43,7 +45,7 @@ const updateCity = async (req, res) => {
     let { id } = req.query;
     await City.findByIdAndUpdate(id, { city: "New city" });
     res.status(201).json({
-      message: "city has been updated",
+      message: "The city has been updated successfully!",
     });
   } catch (error) {
     res.status(500).json({ message: error });
@@ -52,7 +54,7 @@ const updateCity = async (req, res) => {
 module.exports = {
   getCity,
   getCityId,
-  addCity,
+  postCity,
   deleteCity,
   updateCity,
 };
