@@ -5,8 +5,8 @@ const URL =
 
 connect(URL)
   .then(() => {
-    console.log("Connect success to database");
+    console.log("¡Connected to the database!");
   })
   .catch(() => {
-    console.log("Error connecting to database");
+    console.log("x ¡Error connecting to database! x");
   });
