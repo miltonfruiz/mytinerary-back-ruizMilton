@@ -9,7 +9,7 @@ const schemaCity = new Schema({
     type: String,
     required: true,
   },
-  image: {
+  images: {
     type: String,
     required: true,
   },
@@ -21,7 +21,7 @@ const schemaCity = new Schema({
     type: Number,
     required: true,
   },
-  money: {
+  badge: {
     type: String,
     required: true,
   },

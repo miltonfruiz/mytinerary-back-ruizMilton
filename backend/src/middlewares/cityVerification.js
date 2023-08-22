@@ -1,12 +1,21 @@
 const cityDataVerification = (req, res, next) => {
-  let { city, country, age } = req.body;
+  let {
+    city,
+    country,
+    images,
+    region,
+    population,
+    badge,
+    monument,
+    description,
+  } = req.body;
   if (
     !city ||
     !country ||
     !images ||
     !region ||
     !population ||
-    !money ||
+    !badge ||
     !monument ||
     !description
   ) {
@@ -27,7 +36,7 @@ const cityDataVerification = (req, res, next) => {
   if (population == 0) {
     return res.status(400).json({ message: "x ¡Invalid population! x" });
   }
-  if (money == "") {
+  if (badge == "") {
     return res.status(400).json({ message: "x ¡Invalid money! x" });
   }
   if (monument == "") {
