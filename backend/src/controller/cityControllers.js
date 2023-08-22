@@ -43,7 +43,17 @@ const deleteCity = async (req, res) => {
 const updateCity = async (req, res) => {
   try {
     let { id } = req.query;
-    await City.findByIdAndUpdate(id, { city: "New city" });
+    await City.findByIdAndUpdate(
+      id,
+      { city: req.query.city },
+      { country: req.query.country },
+      { images: req.query.images },
+      { region: req.query.region },
+      { population: req.query.population },
+      { badge: req.query.badge },
+      { monument: req.query.monument },
+      { description: req.query.description }
+    );
     res.status(201).json({
       message: "The city has been updated successfully!",
     });
