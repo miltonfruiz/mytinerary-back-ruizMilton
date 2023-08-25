@@ -1,11 +1,11 @@
 const { Schema, model } = require("mongoose");
 
 const schemaItineary = new Schema({
-  images: {
+  name: {
     type: String,
     required: true,
   },
-  name: {
+  images: {
     type: String,
     required: true,
   },
