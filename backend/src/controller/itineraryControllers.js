@@ -57,3 +57,22 @@ const updateItinerary = async (req, res) => {
     res.status(500).json({ message: error });
   }
 };
+const deleteItinerary = async (req, res) => {
+  try {
+    let { id } = req.query;
+    await Itinerary.deleteOne({ _id: id });
+    res
+      .status(201)
+      .json({ message: "The itinerary has been deleted successfully!" });
+  } catch (error) {
+    res.status(500).json({ message: error });
+  }
+};
+module.exports = {
+  getItinerary,
+  getItineraryName,
+  getItineraryId,
+  postItinerary,
+  updateItinerary,
+  deleteItinerary,
+};
