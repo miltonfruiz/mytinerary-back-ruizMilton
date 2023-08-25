@@ -39,3 +39,21 @@ const postItinerary = async (req, res) => {
     res.status(500).json({ message: error });
   }
 };
+const updateItinerary = async (req, res) => {
+  try {
+    let { id } = req.query;
+    await Itinerary.findByIdAndUpdate(
+      id,
+      { name: req.query.name },
+      { images: req.query.images },
+      { price: req.query.price },
+      { duration: req.query.duration },
+      { comments: req.query.comments }
+    );
+    res.status(201).json({
+      message: "The itinerary has been updated successfully!",
+    });
+  } catch (error) {
+    res.status(500).json({ message: error });
+  }
+};
