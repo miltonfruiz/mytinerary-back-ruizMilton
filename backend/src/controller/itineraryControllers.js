@@ -27,3 +27,15 @@ const getItineraryId = async (req, res) => {
     res.status(500).json({ message: error });
   }
 };
+const postItinerary = async (req, res) => {
+  try {
+    let payload = req.body;
+    let createItinerary = await Itinerary.create(payload);
+    res.status(201).json({
+      message: "The itinerary has been added successfully!",
+      itinerary: createItinerary,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error });
+  }
+};
