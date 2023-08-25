@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from "react";
 import Cards from "../Cards";
 import "./style.css";
 import axios from "axios";
-import { getAllCity } from "../../services/cityQueries";
 
 export default function Fetch() {
   let [city, setCity] = useState([]);
@@ -13,10 +12,21 @@ export default function Fetch() {
       .then((response) => {
         setCity(response.data);
         setAllCity(response.data);
-        console.log(city);
       })
       .catch((error) => console.log(error));
   }, []);
+
+  let handleSubmit = (event) => {
+    event.preventDefault();
+    if (input.current.value) {
+      let queryParams = "?city=" + input.current.value;
+      axios(`http://localhost:3000/api/city${queryParams}`)
+        .then((response) => setCity(response))
+        .catch((error) => console.log(error));
+    } else {
+      setCity(allCity);
+    }
+  };
 
   return (
     <>
@@ -24,7 +34,7 @@ export default function Fetch() {
         <div className="row justify-content-center d-flex ">
           <h5 className="col-8 mt-5">CITIES</h5>
         </div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>
             <input type="text" ref={input} />
             <button className="btn btn-secondary">👁️</button>
