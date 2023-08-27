@@ -21,3 +21,4 @@ const cityReducers = createReducer(initialState, (builder) => {
     const newState = { ...state, city: action.payload.city };
   });
 });
+export default cityReducers;
