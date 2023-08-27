@@ -1,11 +1,12 @@
 import { createAction } from "@reduxjs/toolkit";
 
-const add_city = createAction("add_city", (object) => {
+const add_city = createAction("add_city", (array) => {
   return {
-    payload,
+    payload: {
+      city: array,
+    },
   };
 });
 
-export default {
-  add_city,
-};
+const cityActions = { add_city };
+export default cityActions;
