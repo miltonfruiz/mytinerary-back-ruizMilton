@@ -1,10 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const schemaCities = new Schema({
-  region: {
-    type: String,
-    required: true,
-  },
+const schemaCity = new Schema({
   city: {
     type: String,
     required: true,
@@ -13,15 +9,19 @@ const schemaCities = new Schema({
     type: String,
     required: true,
   },
-  image: {
+  images: {
+    type: String,
+    required: true,
+  },
+  region: {
     type: String,
     required: true,
   },
   population: {
-    type: String,
+    type: Number,
     required: true,
   },
-  money: {
+  badge: {
     type: String,
     required: true,
   },
@@ -35,5 +35,5 @@ const schemaCities = new Schema({
   },
 });
 
-const Cities = model("Cities", schemaCities);
-module.exports = Cities;
+const City = model("City", schemaCity);
+module.exports = City;

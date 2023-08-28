@@ -1,0 +1,12 @@
+.contact,
+.apMern {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.allRights {
+  background-color: rgb(113, 120, 128);
+  height: 50px;
+  color: whitesmoke;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

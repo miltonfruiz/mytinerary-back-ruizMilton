@@ -1,21 +1,19 @@
 const express = require("express");
 const router = express.Router();
 const {
-  getCities,
-  getClients,
-  addClient,
-  deleteClient,
-  updateClient,
-} = require("../controller/clientsController");
+  getCity,
+  getCityId,
+  postCity,
+  deleteCity,
+  updateCity,
+} = require("../controller/cityControllers");
 
-const { verifyDataClient } = require("../middlewares/verification");
-const { addAccount } = require("../controller/accountsController");
+const { cityDataVerification } = require("../middlewares/cityVerification");
 
-router.get("/cities", getCities);
-// router.get("/clients/:id", getClient);
-// router.post("/clients", verifyDataClient, addClient);
-// router.delete("/clients", verifyDataClient, deleteClient);
-// router.put("/clients", verifyDataClient, updateClient);
-// router.post("/accounts", addAccount);
+router.get("/city", getCity);
+router.get("/city/:id", getCityId);
+router.post("/city", cityDataVerification, postCity);
+router.delete("/city", cityDataVerification, deleteCity);
+router.put("/city", cityDataVerification, updateCity);
 
 module.exports = router;
