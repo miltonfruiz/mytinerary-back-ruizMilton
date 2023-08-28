@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, Types } = require("mongoose");
 
 const schemaCity = new Schema({
   city: {
@@ -33,6 +33,12 @@ const schemaCity = new Schema({
     type: String,
     required: true,
   },
+  itineraries: [
+    {
+      type: Types.ObjectId,
+      ref: "Itinerary",
+    },
+  ],
 });
 
 const City = model("City", schemaCity);

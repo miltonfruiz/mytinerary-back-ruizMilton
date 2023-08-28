@@ -1,4 +1,4 @@
-const { Schema, model } = require("mongoose");
+const { Schema, model, Types } = require("mongoose");
 
 const schemaItineary = new Schema({
   name: {
@@ -21,6 +21,7 @@ const schemaItineary = new Schema({
     type: String,
     required: true,
   },
+  city: { type: Types.ObjectId, ref: "City" },
 });
 const Itinerary = model("Itinerary", schemaItineary);
 module.exports = Itinerary;
