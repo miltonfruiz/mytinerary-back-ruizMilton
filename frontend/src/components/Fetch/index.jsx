@@ -2,16 +2,19 @@ import React, { useEffect, useState, useRef } from "react";
 import Cards from "../Cards";
 import "./style.css";
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
+import cityActions from "../../store/actions/city";
 
 export default function Fetch() {
-  let [city, setCity] = useState([]);
-  let [allCity, setAllCity] = useState([]);
   let input = useRef(null);
+  let cityInStore = useSelector((store) => store.cityReducer.city);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    axios("http://localhost:3000/api/city")
+    axios
+      .get("http://localhost:3000/api/city")
       .then((response) => {
-        setCity(response.data);
-        setAllCity(response.data);
+        dispatch(cityActions.add_city(response.data));
       })
       .catch((error) => console.log(error));
   }, []);
@@ -19,12 +22,12 @@ export default function Fetch() {
   let handleSubmit = (event) => {
     event.preventDefault();
     if (input.current.value) {
-      let queryParams = "?city=" + input.current.value;
-      axios(`http://localhost:3000/api/city${queryParams}`)
-        .then((response) => setCity(response))
+      axios
+        .get(`http://localhost:3000/api/city?city=${input.current.value}`)
+        .then((response) => dispatch(cityActions.add_city(response)))
         .catch((error) => console.log(error));
     } else {
-      setCity(allCity);
+      dispatch(cityActions.add_city(response.data));
     }
   };
 
@@ -41,8 +44,8 @@ export default function Fetch() {
           </label>
         </form>
         <div className="row justify-content-center d-flex ">
-          {city.length > 0 ? (
-            city.map((array) => (
+          {cityInStore.length > 0 ? (
+            cityInStore.map((array) => (
               <Cards
                 cardLink={array.images}
                 cardTitle={array.city}
