@@ -10,7 +10,7 @@ const {
 const { cityDataVerification } = require("../middlewares/cityVerification");
 
 const {
-  getItinerary,
+  addItinerary,
   getItineraryName,
   getItineraryId,
   postItinerary,
@@ -27,7 +27,7 @@ router.post("/city", cityDataVerification, postCity);
 router.delete("/city", cityDataVerification, deleteCity);
 router.put("/city", cityDataVerification, updateCity);
 
-router.get("/itinerary", getItinerary);
+router.post("/itinerary", addItinerary);
 router.get("/itinerary/:name", getItineraryName);
 router.get("/itinerary/:id", getItineraryId);
 router.post("/itinerary", itineraryDataVerification, postItinerary);

@@ -1,10 +1,26 @@
 const Itinerary = require("../models/Itinerary");
 const City = require("../models/City");
 
-const getItinerary = async (req, res) => {
+const addItinerary = async (req, res) => {
   try {
-    let itinerary = await Itinerary.find();
-    res.status(200).json(itinerary);
+    let { id } = req.query;
+    let foundedCity = await City.findById(id);
+    let newItinerary = await Itinerary.create({
+      name: req.query.name,
+      images: req.query.images,
+      price: req.query.price,
+      duration: req.query.duration,
+      comments: req.query.comments,
+      city: foundedCity,
+    });
+    await foundedCity.updateOne({
+      itineraries: [...foundedCity.itineraries, newItinerary],
+    });
+    let foundedCityUpdated = await City.findById(id);
+    res.status(201).json({
+      message: "The itinerary has been added successfully!",
+      itinerary: foundedCityUpdated,
+    });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -69,7 +85,7 @@ const deleteItinerary = async (req, res) => {
   }
 };
 module.exports = {
-  getItinerary,
+  addItinerary,
   getItineraryName,
   getItineraryId,
   postItinerary,

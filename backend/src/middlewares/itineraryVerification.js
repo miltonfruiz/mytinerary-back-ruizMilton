@@ -1,6 +1,6 @@
 const itineraryDataVerification = (req, res, next) => {
-  let { name, images, price, duration, comments } = req.body;
-  if (!name || !images || !price || !duration || !comments) {
+  let { name, images, price, duration, comments, city } = req.body;
+  if (!name || !images || !price || !duration || !comments || !city) {
     return res.status(400).json({ message: "x ¡Invalid data! x" });
   }
   if (name == "") {
@@ -17,6 +17,9 @@ const itineraryDataVerification = (req, res, next) => {
   }
   if (comments == "") {
     return res.status(400).json({ message: "x ¡Invalid comments! x" });
+  }
+  if (city == "") {
+    return res.status(400).json({ message: "x ¡Invalid city! x" });
   }
   next();
 };
