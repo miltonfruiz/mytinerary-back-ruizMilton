@@ -11,8 +11,8 @@ const getItineraries = async (req, res) => {
 };
 const getItinerariesCity = async (req, res) => {
   try {
-    let { id } = req.params;
-    let foundedCity = await City.findById(id);
+    let { city } = req.params;
+    let foundedCity = await City.findOne({ city: city });
     let itinerary = await Itinerary.find(foundedCity.itineraries);
     res.status(200).json(itinerary);
   } catch (error) {
