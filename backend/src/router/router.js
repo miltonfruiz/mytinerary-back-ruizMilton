@@ -14,7 +14,7 @@ const {
   getItinerariesCity,
   getItineraryId,
   postItinerary,
-  updateItinerary,
+  putItinerary,
   deleteItinerary,
 } = require("../controller/itineraryControllers");
 const {
@@ -31,7 +31,7 @@ router.get("/itinerary", getItineraries);
 router.get("/itinerary/:id", getItinerariesCity);
 router.get("/itinerary/:id", getItineraryId);
 router.post("/itinerary", postItinerary);
-router.put("/itinerary", itineraryDataVerification, updateItinerary);
+router.put("/itinerary", putItinerary);
 router.delete("/itinerary", itineraryDataVerification, deleteItinerary);
 
 module.exports = router;

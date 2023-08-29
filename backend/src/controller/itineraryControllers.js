@@ -52,7 +52,7 @@ const postItinerary = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
-const updateItinerary = async (req, res) => {
+const putItinerary = async (req, res) => {
   try {
     let { id } = req.query;
     await Itinerary.findByIdAndUpdate(
@@ -86,6 +86,6 @@ module.exports = {
   getItinerariesCity,
   getItineraryId,
   postItinerary,
-  updateItinerary,
+  putItinerary,
   deleteItinerary,
 };
