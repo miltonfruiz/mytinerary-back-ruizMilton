@@ -10,9 +10,10 @@ const {
 const { cityDataVerification } = require("../middlewares/cityVerification");
 
 const {
-  postItinerary,
-  getItineraryName,
+  getItineraries,
+  getItinerariesCity,
   getItineraryId,
+  postItinerary,
   updateItinerary,
   deleteItinerary,
 } = require("../controller/itineraryControllers");
@@ -26,7 +27,8 @@ router.post("/city", cityDataVerification, postCity);
 router.delete("/city", cityDataVerification, deleteCity);
 router.put("/city", cityDataVerification, updateCity);
 
-router.get("/itinerary/:name", getItineraryName);
+router.get("/itinerary", getItineraries);
+router.get("/itinerary/:id", getItinerariesCity);
 router.get("/itinerary/:id", getItineraryId);
 router.post("/itinerary", postItinerary);
 router.put("/itinerary", itineraryDataVerification, updateItinerary);
