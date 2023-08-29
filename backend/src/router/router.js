@@ -30,8 +30,8 @@ router.put("/city", cityDataVerification, updateCity);
 router.get("/itinerary", getItineraries);
 router.get("/itinerary/:id", getItinerariesCity);
 router.get("/itinerary/:id", getItineraryId);
-router.post("/itinerary", postItinerary);
-router.put("/itinerary", putItinerary);
+router.post("/itinerary", itineraryDataVerification, postItinerary);
+router.put("/itinerary", itineraryDataVerification, putItinerary);
 router.delete("/itinerary", itineraryDataVerification, deleteItinerary);
 
 module.exports = router;

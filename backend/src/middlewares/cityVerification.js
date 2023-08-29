@@ -10,19 +10,7 @@ const cityDataVerification = (req, res, next) => {
     description,
     itineraries,
   } = req.body;
-  if (
-    !city ||
-    !country ||
-    !images ||
-    !region ||
-    !population ||
-    !badge ||
-    !monument ||
-    !description ||
-    !itineraries
-  ) {
-    return res.status(400).json({ message: "x ¡Invalid data! x" });
-  }
+
   if (city == "") {
     return res.status(400).json({ message: "x ¡Invalid city! x" });
   }

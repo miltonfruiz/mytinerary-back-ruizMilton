@@ -1,8 +1,5 @@
 const itineraryDataVerification = (req, res, next) => {
   let { name, images, price, duration, comments } = req.body;
-  if (!name || !images || !price || !duration || !comments) {
-    return res.status(400).json({ message: "x ¡Invalid dataaaaaaaaaaaaa! x" });
-  }
   if (name == "") {
     return res.status(400).json({ message: "x ¡Invalid name! x" });
   }
