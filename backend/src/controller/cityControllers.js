@@ -23,7 +23,7 @@ const postCity = async (req, res) => {
     let createCity = await City.create(payload);
     res.status(201).json({
       message: "The city has been added successfully!",
-      city: createCity,
+      newCity: createCity,
     });
   } catch (error) {
     res.status(500).json({ message: error });
@@ -43,19 +43,20 @@ const deleteCity = async (req, res) => {
 const updateCity = async (req, res) => {
   try {
     let { id } = req.query;
-    await City.findByIdAndUpdate(
-      id,
-      { city: req.query.city },
-      { country: req.query.country },
-      { images: req.query.images },
-      { region: req.query.region },
-      { population: req.query.population },
-      { badge: req.query.badge },
-      { monument: req.query.monument },
-      { description: req.query.description }
-    );
+    await City.findByIdAndUpdate(id, {
+      city: req.query.city,
+      country: req.query.country,
+      images: req.query.images,
+      region: req.query.region,
+      population: req.query.population,
+      badge: req.query.badge,
+      monument: req.query.monument,
+      description: req.query.description,
+    });
+    let foundedCityUpdated = await City.findById(id);
     res.status(201).json({
       message: "The city has been updated successfully!",
+      Updated: foundedCityUpdated,
     });
   } catch (error) {
     res.status(500).json({ message: error });
