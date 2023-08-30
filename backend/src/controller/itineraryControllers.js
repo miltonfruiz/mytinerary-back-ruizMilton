@@ -11,9 +11,12 @@ const getItineraries = async (req, res) => {
 };
 const getItinerariesCity = async (req, res) => {
   try {
-    let { id } = req.query;
-    let foundedCity = await City.findById(id);
-    res.status(200).json({ message: "ACA", ACA: foundedCity.itineraries });
+    let { city } = req.params;
+    let foundedCity = await City.findOne({ city: city });
+    res.status(200).json({
+      message: "The city has been founded successfully",
+      itinerary: foundedCity.itineraries,
+    });
   } catch (error) {
     res.status(500).json({ message: error });
   }

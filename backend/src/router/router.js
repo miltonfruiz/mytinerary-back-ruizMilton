@@ -28,7 +28,7 @@ router.delete("/city", cityDataVerification, deleteCity);
 router.put("/city", cityDataVerification, updateCity);
 
 router.get("/itinerary", getItineraries);
-//router.get("/city/:id", getItinerariesCity);
+router.get("/itinerary/:city", getItinerariesCity);
 router.get("/itinerary/:id", getItineraryId);
 router.post("/itinerary", itineraryDataVerification, postItinerary);
 router.put("/itinerary", itineraryDataVerification, putItinerary);
