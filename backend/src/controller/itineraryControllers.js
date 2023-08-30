@@ -60,16 +60,17 @@ const postItinerary = async (req, res) => {
 const putItinerary = async (req, res) => {
   try {
     let { id } = req.query;
-    await Itinerary.findByIdAndUpdate(
-      id,
-      { name: req.query.name },
-      { images: req.query.images },
-      { price: req.query.price },
-      { duration: req.query.duration },
-      { comments: req.query.comments }
-    );
+    await Itinerary.findByIdAndUpdate(id, {
+      name: req.query.name,
+      images: req.query.images,
+      price: req.query.price,
+      duration: req.query.duration,
+      comments: req.query.comments,
+    });
+    let foundedCityUpdated = await Itinerary.findById(id);
     res.status(201).json({
       message: "The itinerary has been updated successfully!",
+      itinerary: foundedCityUpdated,
     });
   } catch (error) {
     res.status(500).json({ message: error });
