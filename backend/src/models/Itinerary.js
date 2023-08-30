@@ -19,11 +19,11 @@ const schemaItineary = new Schema({
   },
   comments: {
     type: Array,
-    required: true,
+    required: false,
   },
   activities: {
     type: Array,
-    required: true,
+    required: false,
   },
   city: { type: Types.ObjectId, ref: "City" },
 });
