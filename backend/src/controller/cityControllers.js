@@ -11,7 +11,7 @@ const getCity = async (req, res) => {
 const getCityId = async (req, res) => {
   try {
     let { id } = req.params;
-    let foundCity = await City.findById(id);
+    let foundCity = await City.findById(id).populate("itineraries");
     res.status(200).json(foundCity);
   } catch (error) {
     res.status(500).json({ message: error });
