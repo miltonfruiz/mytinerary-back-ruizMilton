@@ -8,19 +8,9 @@ const cityDataVerification = (req, res, next) => {
     badge,
     monument,
     description,
+    itineraries,
   } = req.body;
-  if (
-    !city ||
-    !country ||
-    !images ||
-    !region ||
-    !population ||
-    !badge ||
-    !monument ||
-    !description
-  ) {
-    return res.status(400).json({ message: "x ¡Invalid data! x" });
-  }
+
   if (city == "") {
     return res.status(400).json({ message: "x ¡Invalid city! x" });
   }
@@ -44,6 +34,9 @@ const cityDataVerification = (req, res, next) => {
   }
   if (description == "") {
     return res.status(400).json({ message: "x ¡Invalid description! x" });
+  }
+  if (itineraries == [{}]) {
+    return res.status(400).json({ message: "x ¡Invalid itineraries! x" });
   }
   next();
 };

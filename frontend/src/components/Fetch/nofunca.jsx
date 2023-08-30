@@ -31,7 +31,7 @@ export default function Fetch() {
     if (input.current.value) {
       let queryParams = "?name=" + input.current.value;
       getAllCity(queryParams)
-        .then((response) => setCity(response))
+        .then((response) => console.log(response))
         .catch((error) => console.log(error));
     } else {
       setCity(allCity);

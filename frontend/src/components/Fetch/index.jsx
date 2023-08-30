@@ -2,21 +2,34 @@ import React, { useEffect, useState, useRef } from "react";
 import Cards from "../Cards";
 import "./style.css";
 import axios from "axios";
-import { getAllCity } from "../../services/cityQueries";
+import { useSelector, useDispatch } from "react-redux";
+import cityActions from "../../store/actions/city";
 
 export default function Fetch() {
-  let [city, setCity] = useState([]);
-  let [allCity, setAllCity] = useState([]);
   let input = useRef(null);
+  let cityInStore = useSelector((store) => store.cityReducer.city);
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    axios("http://localhost:3000/api/city")
+    axios
+      .get("http://localhost:3000/api/city")
       .then((response) => {
-        setCity(response.data);
-        setAllCity(response.data);
-        console.log(city);
+        dispatch(cityActions.add_city(response.data));
       })
       .catch((error) => console.log(error));
   }, []);
+
+  let handleSubmit = (event) => {
+    event.preventDefault();
+    if (input.current.value) {
+      axios
+        .get(`http://localhost:3000/api/city?city=${input.current.value}`)
+        .then((response) => dispatch(cityActions.add_city(response)))
+        .catch((error) => console.log(error));
+    } else {
+      dispatch(cityActions.add_city(response.data));
+    }
+  };
 
   return (
     <>
@@ -24,15 +37,15 @@ export default function Fetch() {
         <div className="row justify-content-center d-flex ">
           <h5 className="col-8 mt-5">CITIES</h5>
         </div>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>
             <input type="text" ref={input} />
             <button className="btn btn-secondary">👁️</button>
           </label>
         </form>
         <div className="row justify-content-center d-flex ">
-          {city.length > 0 ? (
-            city.map((array) => (
+          {cityInStore.length > 0 ? (
+            cityInStore.map((array) => (
               <Cards
                 cardLink={array.images}
                 cardTitle={array.city}
