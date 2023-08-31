@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const get_city = createAsyncThunk("get_city", async () => {
   const cities = await axios

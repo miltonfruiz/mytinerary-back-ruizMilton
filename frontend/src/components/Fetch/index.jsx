@@ -11,12 +11,7 @@ export default function Fetch() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/api/city")
-      .then((response) => {
-        dispatch(cityActions.add_city(response.data));
-      })
-      .catch((error) => console.log(error));
+    dispatch(cityActions.get_city());
   }, []);
 
   let handleSubmit = (event) => {
