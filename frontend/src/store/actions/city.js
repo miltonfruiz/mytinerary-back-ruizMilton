@@ -12,9 +12,22 @@ const get_city = createAsyncThunk("get_city", async () => {
       city: cities,
     };
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 });
 
-const cityActions = { get_city };
+const filter_city = createAsyncThunk("filter_city", async (id) => {
+  try {
+    const city = await axios
+      .get("http://localhost:3000/api/city/" + id)
+      .then((response) => response.data);
+    return {
+      city: city,
+    };
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
+const cityActions = { get_city, filter_city };
 export default cityActions;
