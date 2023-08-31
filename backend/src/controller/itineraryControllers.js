@@ -42,16 +42,15 @@ const postItinerary = async (req, res) => {
       images: req.query.images,
       price: req.query.price,
       duration: req.query.duration,
-      comments: req.query.comments,
       _city: foundedCity,
     });
     await foundedCity.updateOne({
       itineraries: [...foundedCity.itineraries, newItinerary],
     });
-    let foundedCityUpdated = await City.findById(id).populate("itineraries");
+    await City.findById(id).populate("itineraries");
     res.status(200).json({
       message: "The itinerary has been added successfully!",
-      Updated: foundedCityUpdated,
+      newItinerary: newItinerary,
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -60,16 +59,16 @@ const postItinerary = async (req, res) => {
 const putItinerary = async (req, res) => {
   try {
     let { id } = req.query;
-    await Itinerary.findByIdAndUpdate(
-      id,
-      { name: req.query.name },
-      { images: req.query.images },
-      { price: req.query.price },
-      { duration: req.query.duration },
-      { comments: req.query.comments }
-    );
+    await Itinerary.findByIdAndUpdate(id, {
+      name: req.query.name,
+      images: req.query.images,
+      price: req.query.price,
+      duration: req.query.duration,
+    });
+    let foundedCityUpdated = await Itinerary.findById(id);
     res.status(201).json({
       message: "The itinerary has been updated successfully!",
+      itinerary: foundedCityUpdated,
     });
   } catch (error) {
     res.status(500).json({ message: error });

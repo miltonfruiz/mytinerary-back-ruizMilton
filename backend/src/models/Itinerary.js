@@ -10,7 +10,7 @@ const schemaItineary = new Schema({
     required: true,
   },
   price: {
-    type: Number,
+    type: String,
     required: true,
   },
   duration: {
@@ -18,8 +18,12 @@ const schemaItineary = new Schema({
     required: true,
   },
   comments: {
-    type: String,
-    required: true,
+    type: Array,
+    required: false,
+  },
+  activities: {
+    type: Array,
+    required: false,
   },
   city: { type: Types.ObjectId, ref: "City" },
 });
