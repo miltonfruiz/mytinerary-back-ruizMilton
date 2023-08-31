@@ -23,8 +23,8 @@ export default function Fetch() {
     event.preventDefault();
     if (input.current.value) {
       axios
-        .get(`http://localhost:3000/api/city?city=${input.current.value}`)
-        .then((response) => dispatch(cityActions.add_city(response)))
+        .get(`http://localhost:3000/api/city/${input.current.value}`)
+        .then((response) => dispatch(cityActions.add_city([response.data])))
         .catch((error) => console.log(error));
     } else {
       dispatch(cityActions.add_city(response.data));
