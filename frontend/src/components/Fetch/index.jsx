@@ -1,12 +1,11 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Cards from "../Cards";
 import "./style.css";
-import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import cityActions from "../../store/actions/city";
 
 export default function Fetch() {
-  let input = useRef(null);
+  let input = useRef();
   let cityInStore = useSelector((store) => store.cityReducer.city);
   const dispatch = useDispatch();
 
@@ -17,12 +16,9 @@ export default function Fetch() {
   let handleSubmit = (event) => {
     event.preventDefault();
     if (input.current.value) {
-      axios
-        .get(`http://localhost:3000/api/city/${input.current.value}`)
-        .then((response) => dispatch(cityActions.add_city([response.data])))
-        .catch((error) => console.log(error));
+      dispatch(cityActions.filter_city(input.current.value));
     } else {
-      dispatch(cityActions.add_city(response.data));
+      dispatch(cityActions.get_city());
     }
   };
 
@@ -35,7 +31,7 @@ export default function Fetch() {
         <form onSubmit={handleSubmit}>
           <label>
             <input type="text" ref={input} />
-            <button className="btn btn-secondary">👁️</button>
+            <button className="btn btn-secondary">FILTRAR</button>
           </label>
         </form>
         <div className="row justify-content-center d-flex ">
