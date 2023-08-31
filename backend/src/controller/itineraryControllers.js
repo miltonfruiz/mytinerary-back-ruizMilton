@@ -47,10 +47,10 @@ const postItinerary = async (req, res) => {
     await foundedCity.updateOne({
       itineraries: [...foundedCity.itineraries, newItinerary],
     });
-    let foundedCityUpdated = await City.findById(id).populate("itineraries");
+    await City.findById(id).populate("itineraries");
     res.status(200).json({
       message: "The itinerary has been added successfully!",
-      Updated: foundedCityUpdated,
+      newItinerary: newItinerary,
     });
   } catch (error) {
     res.status(500).json({ message: error.message });

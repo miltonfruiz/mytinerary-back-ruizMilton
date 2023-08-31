@@ -6,7 +6,7 @@ const itineraryDataVerification = (req, res, next) => {
   if (images == "") {
     return res.status(400).json({ message: "x ¡Invalid images! x" });
   }
-  if (price == 0) {
+  if (price == "") {
     return res.status(400).json({ message: "x ¡Invalid price! x" });
   }
   if (duration == "") {
