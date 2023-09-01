@@ -3,6 +3,7 @@ import Cards from "../Cards";
 import "./style.css";
 import { useSelector, useDispatch } from "react-redux";
 import cityActions from "../../store/actions/city";
+import { FaSearch } from "react-icons/fa";
 
 export default function Fetch() {
   let input = useRef();
@@ -29,9 +30,17 @@ export default function Fetch() {
           <h5 className="col-8 mt-5">CITIES</h5>
         </div>
         <form onSubmit={handleSubmit}>
-          <label>
-            <input type="text" ref={input} />
-            <button className="btn btn-secondary">FILTRAR</button>
+          <label className="labelClass">
+            <input
+              type=" text"
+              className="textSerach form-control me-1 "
+              ref={input}
+              placeholder="  Search"
+              aria-label="Search"
+            />
+            <button className="btn btn-outline-primary">
+              <FaSearch size={12} />
+            </button>
           </label>
         </form>
         <div className="row justify-content-center d-flex ">
