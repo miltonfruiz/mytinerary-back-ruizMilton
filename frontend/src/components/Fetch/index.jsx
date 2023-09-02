@@ -30,7 +30,7 @@ export default function Fetch() {
           <h2 className="col-8 mt-5">Cities</h2>
         </div>
         <form onSubmit={handleSubmit}>
-          <label className="labelClass">
+          <label className="labelClass mt-4">
             <input
               type=" text"
               className="textSerach form-control me-1 "

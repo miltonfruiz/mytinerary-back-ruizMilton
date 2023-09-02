@@ -23,7 +23,7 @@ export default function Cards({ cardLink, cardTitle, cardDescription, id }) {
                 <Anchors
                   to="/details"
                   id={id}
-                  className="btn btn-primary bton-title"
+                  className="btn btn-outline-danger bton-title "
                   onClick={() => handlerclick()}
                 >
                   <p className="moreDetails">
