@@ -3,7 +3,7 @@ import Cards from "../Cards";
 import { useSelector } from "react-redux";
 
 export default function Filter() {
-  let cityInStore = useSelector((store) => store.cityReducer.city);
+  let cityInStores = useSelector((store) => store.cityReducer.city);
   return (
     <>
       <section className="sectionContainer">
@@ -11,7 +11,7 @@ export default function Filter() {
           <h2 className="col-8 mt-5">Details</h2>
         </div>
         <div className="row justify-content-center d-flex ">
-          {cityInStore.map((array) => (
+          {cityInStores.map((array) => (
             <Cards
               cardLink={array.images}
               cardTitle={array.city}
