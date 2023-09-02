@@ -1,8 +1,15 @@
 import React from "react";
 import "./style.css";
-import More from "../More";
+import { Link as Anchors } from "react-router-dom";
+import { FaAngleDoubleRight } from "react-icons/fa";
+import cityActions from "../../store/actions/city";
+import { useDispatch } from "react-redux";
 
-export default function Cards({ cardLink, cardTitle, cardDescription }) {
+export default function Cards({ cardLink, cardTitle, cardDescription, id }) {
+  const dispatch = useDispatch();
+  const handlerclick = () => {
+    dispatch(cityActions.filter_city(id));
+  };
   return (
     <>
       <div className="col-3 ms-1 mt-5 cardContainer">
@@ -11,7 +18,21 @@ export default function Cards({ cardLink, cardTitle, cardDescription }) {
           <div className="card-body">
             <h5 className="card-title">{cardTitle}</h5>
             <p className="card-text">{cardDescription}</p>
-            <More />
+            <>
+              <div className="more">
+                <Anchors
+                  to="/details"
+                  id={id}
+                  className="btn btn-primary bton-title"
+                  onClick={() => handlerclick()}
+                >
+                  <p className="moreDetails">
+                    {" "}
+                    More Details! <FaAngleDoubleRight size={20} />
+                  </p>{" "}
+                </Anchors>
+              </div>
+            </>
           </div>
         </div>
       </div>

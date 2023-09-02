@@ -27,7 +27,7 @@ export default function Fetch() {
     <>
       <section className="sectionContainer">
         <div className="row justify-content-center d-flex ">
-          <h5 className="col-8 mt-5">CITIES</h5>
+          <h2 className="col-8 mt-5">Cities</h2>
         </div>
         <form onSubmit={handleSubmit}>
           <label className="labelClass">
@@ -50,6 +50,7 @@ export default function Fetch() {
                 cardLink={array.images}
                 cardTitle={array.city}
                 cardDescription={array.country}
+                id={array._id}
               />
             ))
           ) : (
