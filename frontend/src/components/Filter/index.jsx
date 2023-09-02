@@ -1,5 +1,5 @@
 import React from "react";
-import Cards from "../Cards";
+import Details from "../Details";
 import { useSelector } from "react-redux";
 
 export default function Filter() {
@@ -8,14 +8,18 @@ export default function Filter() {
     <>
       <section className="sectionContainer">
         <div className="row justify-content-center d-flex ">
-          <h2 className="col-8 mt-5">Details</h2>
+          <h2 className="col-8 mt-5 mb-5">Details</h2>
         </div>
         <div className="row justify-content-center d-flex ">
           {cityInStores.map((array) => (
-            <Cards
-              cardLink={array.images}
-              cardTitle={array.city}
-              cardDescription={array.country}
+            <Details
+              cardImage={array.images}
+              cardCity={array.city}
+              cardRegion={array.region}
+              cardPopulation={array.population}
+              cardBadge={array.badge}
+              cardMonument={array.monument}
+              cardDescription={array.description}
             />
           ))}
         </div>

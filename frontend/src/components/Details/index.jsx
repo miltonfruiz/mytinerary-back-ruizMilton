@@ -1,26 +1,39 @@
 import React from "react";
+import "./style.css";
 
-export default function Details() {
+export default function Details({
+  cardImage,
+  cardCity,
+  cardCountry,
+  cardRegion,
+  cardPopulation,
+  cardBadge,
+  cardMonument,
+  cardDescription,
+}) {
   return (
     <>
-      <div class="card mb-3" style="max-width: 540px;">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <img src="..." class="img-fluid rounded-start" alt="..." />
+      <div className="containerDetails">
+        <div className="row">
+          <div className="col-4">
+            <img src={cardImage} class="img-fluid rounded-start" alt="..." />
           </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a wider card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-              <p class="card-text">
-                <small class="text-body-secondary">
-                  Last updated 3 mins ago
-                </small>
-              </p>
+          <div className="col-6">
+            <div className="card-body">
+              <h6>City</h6>
+              <p className="h6">{cardCity}</p>
+              <h6>Country</h6>
+              <p className="h6">{cardCountry}</p>
+              <h6>Region</h6>
+              <p className="h6">{cardRegion}</p>
+              <h6>Population</h6>
+              <p className="h6">{cardPopulation}</p>
+              <h6>Badge</h6>
+              <p className="h6">{cardBadge}</p>
+              <h6>Monument</h6>
+              <p className="h6">{cardMonument}</p>
+              <h6>Description</h6>
+              <p className="h6">{cardDescription}</p>
             </div>
           </div>
         </div>

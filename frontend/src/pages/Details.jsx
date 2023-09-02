@@ -6,9 +6,7 @@ import Filter from "../components/Filter";
 export default function Cities() {
   return (
     <>
-      <Header />
       <Filter />
-      <Footer />
     </>
   );
 }
