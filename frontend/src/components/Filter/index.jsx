@@ -30,10 +30,18 @@ export default function Filter() {
         <div className="row justify-content-center d-flex">
           {cityInStores.map((array) => (
             <Accordion
-              itineraryDuration={cityInStores[0].itineraries[0].duration}
-              itineraryPrice={cityInStores[0].itineraries[0].price}
-              itineraryLikes={cityInStores[0].itineraries[0].like}
-              itineraryTags={cityInStores[0].itineraries[0].tags}
+              itineraryDuration1={cityInStores[0].itineraries[0].duration}
+              itineraryPrice1={cityInStores[0].itineraries[0].price}
+              itineraryLikes1={cityInStores[0].itineraries[0].likes}
+              itineraryTags1={cityInStores[0].itineraries[0].tags}
+              itineraryDuration2={cityInStores[0].itineraries[1].duration}
+              itineraryPrice2={cityInStores[0].itineraries[1].price}
+              itineraryLikes2={cityInStores[0].itineraries[1].likes}
+              itineraryTags2={cityInStores[0].itineraries[1].tags}
+              itineraryDuration3={cityInStores[0].itineraries[2].duration}
+              itineraryPrice3={cityInStores[0].itineraries[2].price}
+              itineraryLikes3={cityInStores[0].itineraries[2].likes}
+              itineraryTags3={cityInStores[0].itineraries[2].tags}
             />
           ))}
         </div>
