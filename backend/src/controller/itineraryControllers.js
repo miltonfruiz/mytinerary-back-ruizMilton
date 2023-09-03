@@ -42,6 +42,8 @@ const postItinerary = async (req, res) => {
       images: req.query.images,
       price: req.query.price,
       duration: req.query.duration,
+      likes: req.query.likes,
+      tags: req.query.tags,
       _city: foundedCity,
     });
     await foundedCity.updateOne({
@@ -64,6 +66,8 @@ const putItinerary = async (req, res) => {
       images: req.query.images,
       price: req.query.price,
       duration: req.query.duration,
+      likes: req.query.likes,
+      tags: req.query.tags,
     });
     let foundedCityUpdated = await Itinerary.findById(id);
     res.status(201).json({
