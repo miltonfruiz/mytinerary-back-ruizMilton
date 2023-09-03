@@ -1,6 +1,15 @@
 .containerDetails {
+  border: 2px solid red;
   width: 850px;
 }
+.p {
+  font-size: 10px;
+}
+.imgDetails {
+  width: 500px;
+  margin-top: 10px;
+  margin-right: 40px;
+}
 .h6 {
-  font-size: 11px;
+  font-size: 13px;
 }

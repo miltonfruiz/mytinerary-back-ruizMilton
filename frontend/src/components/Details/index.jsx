@@ -15,25 +15,25 @@ export default function Details({
     <>
       <div className="containerDetails">
         <div className="row">
-          <div className="col-4">
-            <img src={cardImage} class="img-fluid rounded-start" alt="..." />
+          <div className="col-8">
+            <img src={cardImage} className="imgDetails" alt="logo-img" />
           </div>
-          <div className="col-6">
-            <div className="card-body">
-              <h6>City</h6>
-              <p className="h6">{cardCity}</p>
-              <h6>Country</h6>
-              <p className="h6">{cardCountry}</p>
-              <h6>Region</h6>
-              <p className="h6">{cardRegion}</p>
-              <h6>Population</h6>
-              <p className="h6">{cardPopulation}</p>
-              <h6>Badge</h6>
+          <div className="col-3">
+            <div className="">
+              <h6 className="h6">City</h6>
+              <p className="p">{cardCity}</p>
+              <h6 className="h6">Country</h6>
+              <p className="p">{cardCountry}</p>
+              <h6 className="h6">Region</h6>
+              <p className="p">{cardRegion}</p>
+              <h6 className="h6">Population</h6>
+              <p className="p">{cardPopulation}</p>
+              <h6 className="h6">Badge</h6>
               <p className="h6">{cardBadge}</p>
-              <h6>Monument</h6>
-              <p className="h6">{cardMonument}</p>
-              <h6>Description</h6>
-              <p className="h6">{cardDescription}</p>
+              <h6 className="h6">Monument</h6>
+              <p className="p">{cardMonument}</p>
+              <h6 className="h6">Description</h6>
+              <p className="p">{cardDescription}</p>
             </div>
           </div>
         </div>
