@@ -3,13 +3,25 @@
   width: 850px;
 }
 .p {
-  font-size: 10px;
+  font-size: 11px;
+  display: flex;
+  justify-content: start;
 }
 .imgDetails {
   width: 500px;
   margin-top: 10px;
+  padding: 1px;
   margin-right: 40px;
 }
 .h6 {
   font-size: 13px;
+  display: flex;
+  justify-content: start;
+  margin-bottom: 1px;
+}
+.campsContainer {
+  margin-top: 20px;
+}
+.monumentClass {
+  margin-top: 10px;
 }
