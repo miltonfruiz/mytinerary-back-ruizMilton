@@ -22,6 +22,7 @@ export default function Filter() {
               cardBadge={array.badge}
               cardMonument={array.monument}
               cardDescription={array.description}
+              cardName={cityInStores[0].itineraries[0].name}
             />
           ))}
         </div>

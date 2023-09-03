@@ -19,6 +19,7 @@ export default function Details({
   cardBadge,
   cardMonument,
   cardDescription,
+  cardName,
 }) {
   return (
     <>
@@ -26,6 +27,7 @@ export default function Details({
         <div className="row">
           <div className="col-8">
             <img src={cardImage} className="imgDetails" alt="logo-img" />
+            <p className="nameImage">{cardName}</p>
           </div>
           <div className="col-4">
             <div className="campsContainer">
