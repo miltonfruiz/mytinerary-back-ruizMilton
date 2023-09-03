@@ -29,7 +29,12 @@ export default function Filter() {
         </div>
         <div className="row justify-content-center d-flex">
           {cityInStores.map((array) => (
-            <Accordion itinerary1={cityInStores[0].itineraries[0].duration} />
+            <Accordion
+              itineraryDuration={cityInStores[0].itineraries[0].duration}
+              itineraryPrice={cityInStores[0].itineraries[0].price}
+              itineraryLikes={cityInStores[0].itineraries[0].like}
+              itineraryTags={cityInStores[0].itineraries[0].tags}
+            />
           ))}
         </div>
       </section>
