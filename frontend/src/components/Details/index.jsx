@@ -1,5 +1,14 @@
 import React from "react";
 import "./style.css";
+import {
+  FaCity,
+  FaFlag,
+  FaGlobe,
+  FaUserFriends,
+  FaCoins,
+  FaMonument,
+  FaInfoCircle,
+} from "react-icons/fa";
 
 export default function Details({
   cardImage,
@@ -20,19 +29,40 @@ export default function Details({
           </div>
           <div className="col-4">
             <div className="campsContainer">
-              <h6 className="h6">City:</h6>
+              <h6 className="h6">
+                <FaCity size={20} className="classIcon" />
+                City:
+              </h6>
               <p className="p">{cardCity}</p>
-              <h6 className="h6">Country:</h6>
+              <h6 className="h6">
+                <FaFlag size={20} className="classIcon" />
+                Country:
+              </h6>
               <p className="p">{cardCountry}</p>
-              <h6 className="h6">Region:</h6>
+              <h6 className="h6">
+                <FaGlobe size={20} className="classIcon" />
+                Region:
+              </h6>
               <p className="p">{cardRegion}</p>
-              <h6 className="h6">Population:</h6>
+              <h6 className="h6">
+                <FaUserFriends size={20} className="classIcon" />
+                Population:
+              </h6>
               <p className="p">{cardPopulation}</p>
-              <h6 className="h6">Badge:</h6>
-              <p className="h6">{cardBadge}</p>
-              <h6 className="h6 monumentClass">Monument:</h6>
+              <h6 className="h6">
+                <FaCoins size={20} className="classIcon" />
+                Badge:
+              </h6>
+              <p className="p classBadge">{cardBadge}</p>
+              <h6 className="h6 monumentClass">
+                <FaMonument size={20} className="classIcon" />
+                Monument:
+              </h6>
               <p className="p">{cardMonument}</p>
-              <h6 className="h6">Description:</h6>
+              <h6 className="h6">
+                <FaInfoCircle size={20} className="classIcon" />
+                Description:
+              </h6>
               <p className="p">{cardDescription}</p>
             </div>
           </div>

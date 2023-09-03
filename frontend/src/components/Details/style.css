@@ -1,20 +1,22 @@
 .containerDetails {
-  border: 2px solid red;
+  border-radius: 3px;
+  background-color: whitesmoke;
+  border: 1px solid rgba(76, 107, 107, 0.856);
+  box-shadow: rgba(64, 114, 112, 0.856) 0px 5px 15px;
   width: 850px;
 }
 .p {
   font-size: 11px;
   display: flex;
   justify-content: start;
+  margin-left: 27px;
 }
 .imgDetails {
   width: 500px;
-  margin-top: 10px;
-  padding: 1px;
-  margin-right: 40px;
+  margin-top: 30px;
 }
 .h6 {
-  font-size: 13px;
+  font-size: 14px;
   display: flex;
   justify-content: start;
   margin-bottom: 1px;
@@ -24,4 +26,7 @@
 }
 .monumentClass {
   margin-top: 10px;
+}
+.classIcon {
+  margin-right: 7px;
 }
