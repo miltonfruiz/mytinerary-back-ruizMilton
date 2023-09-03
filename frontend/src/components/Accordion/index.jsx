@@ -1,7 +1,8 @@
 import React from "react";
 import "./style.css";
+import { FaArrowAltCircleRight, FaCity } from "react-icons/fa";
 
-export default function Accordion() {
+export default function Accordion({ itineraryDuration }) {
   return (
     <div className="accordion col-8 mt-5" id="accordionExample">
       <div className="accordion-item accordionContainer">
@@ -14,7 +15,10 @@ export default function Accordion() {
             aria-expanded="true"
             aria-controls="collapseOne"
           >
-            <p className="buttonName">View more</p>
+            <p className="buttonName">
+              <FaArrowAltCircleRight size={20} className="arrowIcon" />
+              View more
+            </p>
           </button>
         </h2>
         <div
@@ -34,23 +38,42 @@ export default function Accordion() {
                     aria-expanded="true"
                     aria-controls="panelsStayOpen-collapseOne"
                   >
-                    Accordion Item #1
+                    Itinerary #1
                   </button>
                 </h2>
                 <div
                   id="panelsStayOpen-collapseOne"
-                  class="accordion-collapse collapse show"
+                  class="accordion-collapse collapse show row"
                 >
-                  <div class="accordion-body">
-                    <strong>This is the first item's accordion body.</strong> It
-                    is shown by default, until the collapse plugin adds the
-                    appropriate classes that we use to style each element. These
-                    classes control the overall appearance, as well as the
-                    showing and hiding via CSS transitions. You can modify any
-                    of this with custom CSS or overriding our default variables.
-                    It's also worth noting that just about any HTML can go
-                    within the <code>.accordion-body</code>, though the
-                    transition does limit overflow.
+                  <div class="accordion-body row justify-content-center d-flex">
+                    <div className="col-3 justify-content-center d-flex">
+                      <h6 className="h6">
+                        <FaCity size={20} className="classIcon" />
+                        Duration:
+                      </h6>
+                      <p className="p">{itineraryDuration}</p>
+                    </div>
+                    <div className="col-3 justify-content-center d-flex">
+                      <h6 className="h6">
+                        <FaCity size={20} className="classIcon" />
+                        Price:
+                      </h6>
+                      <p className="p">{itineraryDuration}</p>
+                    </div>
+                    <div className="col-3 justify-content-center d-flex">
+                      <h6 className="h6">
+                        <FaCity size={20} className="classIcon" />
+                        Likes:
+                      </h6>
+                      <p className="p">{itineraryDuration}</p>
+                    </div>
+                    <div className="col-3 justify-content-center d-flex">
+                      <h6 className="h6">
+                        <FaCity size={20} className="classIcon" />
+                        Tags:
+                      </h6>
+                      <p className="p">{itineraryDuration}</p>
+                    </div>
                   </div>
                 </div>
               </div>

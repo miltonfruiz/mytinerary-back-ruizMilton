@@ -14,6 +14,7 @@
 .imgDetails {
   width: 500px;
   margin-top: 35px;
+  filter: drop-shadow(0 0 0.75rem rgba(64, 114, 112, 0.856));
 }
 .h6 {
   font-size: 15px;
