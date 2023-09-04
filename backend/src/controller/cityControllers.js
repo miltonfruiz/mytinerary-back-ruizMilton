@@ -17,18 +17,6 @@ const getCityId = async (req, res) => {
     res.status(500).json({ message: error });
   }
 };
-const getCityName = async (req, res) => {
-  try {
-    let { city } = req.params;
-    let foundedCity = await City.findOne({ city: city });
-    res.status(200).json({
-      message: "The city has been founded successfully",
-      itinerary: foundedCity,
-    });
-  } catch (error) {
-    res.status(500).json({ message: error });
-  }
-};
 const postCity = async (req, res) => {
   try {
     let payload = req.body;
@@ -77,7 +65,6 @@ const updateCity = async (req, res) => {
 module.exports = {
   getCity,
   getCityId,
-  getCityName,
   postCity,
   deleteCity,
   updateCity,

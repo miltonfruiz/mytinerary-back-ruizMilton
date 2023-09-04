@@ -12,10 +12,12 @@ const getItineraries = async (req, res) => {
 const getItinerariesCity = async (req, res) => {
   try {
     let { city } = req.params;
-    let foundedCity = await City.findOne({ city: city });
+    let foundedCity = await City.findOne({ city: city }).populate(
+      "itineraries"
+    );
     res.status(200).json({
       message: "The city has been founded successfully",
-      itinerary: foundedCity.itineraries,
+      city: foundedCity,
     });
   } catch (error) {
     res.status(500).json({ message: error });
