@@ -32,7 +32,8 @@ const cityReducers = createReducer(initialState, (builder) => {
       return newState;
     })
     .addCase(cityActions.reset_city, (state, action) => {
-      return { ...state, city: action.payload.city };
+      const newState = { ...state, city: [action.payload.city] };
+      return newState;
     });
 });
 export default cityReducers;

@@ -5,8 +5,14 @@ import Accordion from "../Accordion";
 import { Link as Anchors } from "react-router-dom";
 import { FaAngleDoubleRight } from "react-icons/fa";
 import "./style.css";
+import { useDispatch } from "react-redux";
+import cityActions from "../../store/actions/city";
 
 export default function Filter() {
+  const dispatch = useDispatch();
+  const handlerclick = () => {
+    dispatch(cityActions.reset_city());
+  };
   let cityInStores = useSelector((store) => store.cityReducer.city);
   return (
     <>
@@ -51,6 +57,7 @@ export default function Filter() {
           <Anchors
             to="/cities"
             className="btn btn-outline-danger bton-title GoBack"
+            onClick={() => handlerclick()}
           >
             <p className="GoBack">
               {" "}

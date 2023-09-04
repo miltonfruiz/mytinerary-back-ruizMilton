@@ -41,7 +41,7 @@ const filter_city_name = createAsyncThunk("filter_city_name", async (city) => {
 });
 const reset_city = createAction("reset_city", () => {
   return {
-    city: null,
+    city: city,
   };
 });
 
