@@ -53,7 +53,7 @@ const updateCity = async (req, res) => {
       monument: req.query.monument,
       description: req.query.description,
     });
-    let foundedCityUpdated = await City.findById(id);
+    let foundedCityUpdated = await City.findById(id).populate("itineraries");
     res.status(201).json({
       message: "The city has been updated successfully!",
       Updated: foundedCityUpdated,
