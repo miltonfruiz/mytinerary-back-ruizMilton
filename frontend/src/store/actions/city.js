@@ -15,7 +15,6 @@ const get_city = createAsyncThunk("get_city", async () => {
     console.log(error.message);
   }
 });
-
 const filter_city = createAsyncThunk("filter_city", async (id) => {
   try {
     const city = await axios
@@ -28,6 +27,17 @@ const filter_city = createAsyncThunk("filter_city", async (id) => {
     console.log(error.message);
   }
 });
-
-const cityActions = { get_city, filter_city };
+const filter_city_name = createAsyncThunk("filter_city_name", async (city) => {
+  try {
+    const cityName = await axios
+      .get("http://localhost:3000/api/itinerary/" + city)
+      .then((response) => response.data);
+    return {
+      city: cityName,
+    };
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+const cityActions = { get_city, filter_city, filter_city_name };
 export default cityActions;
