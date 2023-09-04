@@ -1,4 +1,4 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
+import { createAction, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 const get_city = createAsyncThunk("get_city", async () => {
@@ -39,5 +39,11 @@ const filter_city_name = createAsyncThunk("filter_city_name", async (city) => {
     console.log(error.message);
   }
 });
-const cityActions = { get_city, filter_city, filter_city_name };
+const reset_city = createAction("reset_city", () => {
+  return {
+    city: null,
+  };
+});
+
+const cityActions = { get_city, filter_city, filter_city_name, reset_city };
 export default cityActions;

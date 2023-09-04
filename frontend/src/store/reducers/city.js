@@ -12,6 +12,7 @@ const initialState = {
       badge: "",
       monument: "",
       description: "",
+      itineraries: [{}],
     },
   ],
 };
