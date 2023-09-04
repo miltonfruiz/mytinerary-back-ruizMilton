@@ -1,7 +1,6 @@
 import React from "react";
 import Details from "../Details";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
 import Accordion from "../Accordion";
 import { Link as Anchors } from "react-router-dom";
 import { FaAngleDoubleRight } from "react-icons/fa";
