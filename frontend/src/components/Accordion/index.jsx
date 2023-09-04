@@ -140,7 +140,7 @@ export default function Accordion({
                         <FaTags size={20} className="classIcon" />
                         Tags:
                       </h6>
-                      <p className="p tags row ms-2">{itineraryTags2}</p>
+                      <p className="p tags row">{itineraryTags2}</p>
                     </div>
                   </div>
                 </div>
