@@ -25,6 +25,10 @@ const cityReducers = createReducer(initialState, (builder) => {
     .addCase(cityActions.filter_city.fulfilled, (state, action) => {
       const newState = { ...state, city: [action.payload.city] };
       return newState;
+    })
+    .addCase(cityActions.filter_city_name.fulfilled, (state, action) => {
+      const newState = { ...state, city: [action.payload.city] };
+      return newState;
     });
 });
 export default cityReducers;
