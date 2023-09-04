@@ -12,10 +12,12 @@ const getItineraries = async (req, res) => {
 const getItinerariesCity = async (req, res) => {
   try {
     let { city } = req.params;
-    let foundedCity = await City.findOne({ city: city });
+    let foundedCity = await City.findOne({ city: city }).populate(
+      "itineraries"
+    );
     res.status(200).json({
       message: "The city has been founded successfully",
-      itinerary: foundedCity.itineraries,
+      city: foundedCity,
     });
   } catch (error) {
     res.status(500).json({ message: error });
@@ -42,6 +44,8 @@ const postItinerary = async (req, res) => {
       images: req.query.images,
       price: req.query.price,
       duration: req.query.duration,
+      likes: req.query.likes,
+      tags: req.query.tags,
       _city: foundedCity,
     });
     await foundedCity.updateOne({
@@ -64,6 +68,8 @@ const putItinerary = async (req, res) => {
       images: req.query.images,
       price: req.query.price,
       duration: req.query.duration,
+      likes: req.query.likes,
+      tags: req.query.tags,
     });
     let foundedCityUpdated = await Itinerary.findById(id);
     res.status(201).json({

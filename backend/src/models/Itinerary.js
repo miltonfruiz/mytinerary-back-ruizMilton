@@ -17,6 +17,14 @@ const schemaItineary = new Schema({
     type: String,
     required: true,
   },
+  likes: {
+    type: Number,
+    required: true,
+  },
+  tags: {
+    type: String,
+    required: true,
+  },
   comments: {
     type: Array,
     required: false,

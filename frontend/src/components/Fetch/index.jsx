@@ -1,33 +1,25 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import Cards from "../Cards";
 import "./style.css";
-import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import cityActions from "../../store/actions/city";
+import { FaSearch } from "react-icons/fa";
 
 export default function Fetch() {
-  let input = useRef(null);
+  let input = useRef();
   let cityInStore = useSelector((store) => store.cityReducer.city);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/api/city")
-      .then((response) => {
-        dispatch(cityActions.add_city(response.data));
-      })
-      .catch((error) => console.log(error));
+    dispatch(cityActions.get_city());
   }, []);
 
   let handleSubmit = (event) => {
     event.preventDefault();
     if (input.current.value) {
-      axios
-        .get(`http://localhost:3000/api/city?city=${input.current.value}`)
-        .then((response) => dispatch(cityActions.add_city(response)))
-        .catch((error) => console.log(error));
+      dispatch(cityActions.filter_city(input.current.value));
     } else {
-      dispatch(cityActions.add_city(response.data));
+      dispatch(cityActions.get_city());
     }
   };
 
@@ -35,12 +27,20 @@ export default function Fetch() {
     <>
       <section className="sectionContainer">
         <div className="row justify-content-center d-flex ">
-          <h5 className="col-8 mt-5">CITIES</h5>
+          <h2 className="col-8 mt-5">Cities</h2>
         </div>
         <form onSubmit={handleSubmit}>
-          <label>
-            <input type="text" ref={input} />
-            <button className="btn btn-secondary">👁️</button>
+          <label className="labelClass mt-4">
+            <input
+              type=" text"
+              className="textSerach form-control me-1 "
+              ref={input}
+              placeholder="  Search"
+              aria-label="Search"
+            />
+            <button className="btn btn-outline-primary">
+              <FaSearch size={12} />
+            </button>
           </label>
         </form>
         <div className="row justify-content-center d-flex ">
@@ -50,6 +50,7 @@ export default function Fetch() {
                 cardLink={array.images}
                 cardTitle={array.city}
                 cardDescription={array.country}
+                id={array._id}
               />
             ))
           ) : (

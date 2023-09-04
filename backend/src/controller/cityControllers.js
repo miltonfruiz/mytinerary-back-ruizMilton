@@ -17,6 +17,17 @@ const getCityId = async (req, res) => {
     res.status(500).json({ message: error });
   }
 };
+const getOneCity = async (req, res) => {
+  try {
+    const city = await City.find(req.params).populate("itineraries");
+    res.status(200).json({
+      message: "The city has been founded successfully!",
+      city: city,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error });
+  }
+};
 const postCity = async (req, res) => {
   try {
     let payload = req.body;
@@ -53,7 +64,7 @@ const updateCity = async (req, res) => {
       monument: req.query.monument,
       description: req.query.description,
     });
-    let foundedCityUpdated = await City.findById(id);
+    let foundedCityUpdated = await City.findById(id).populate("itineraries");
     res.status(201).json({
       message: "The city has been updated successfully!",
       Updated: foundedCityUpdated,
@@ -68,4 +79,5 @@ module.exports = {
   postCity,
   deleteCity,
   updateCity,
+  getOneCity,
 };

@@ -29,3 +29,13 @@
   width: 170px;
   height: 190px;
 }
+.bton-title {
+  font-size: 10px;
+  border-radius: 5px;
+  width: 120px;
+  height: 33px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.moreDetails {
+  margin-top: 0px;
+}

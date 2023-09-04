@@ -6,6 +6,7 @@ const {
   postCity,
   deleteCity,
   updateCity,
+  getOneCity,
 } = require("../controller/cityControllers");
 const { cityDataVerification } = require("../middlewares/cityVerification");
 
@@ -23,6 +24,7 @@ const {
 
 router.get("/city", getCity);
 router.get("/city/:id", getCityId);
+router.get("/city/:city", getOneCity);
 router.post("/city", cityDataVerification, postCity);
 router.delete("/city", cityDataVerification, deleteCity);
 router.put("/city", cityDataVerification, updateCity);

@@ -3,3 +3,22 @@
   justify-content: center;
   align-items: center;
 }
+.btn-outline-primary {
+  border-radius: 5px 20px 20px 5px;
+  width: 40px;
+  height: 37px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.textSerach {
+  font-size: 12px;
+  margin-top: 2px;
+  height: 34px;
+  width: 170px;
+  border-radius: 15px 5px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.labelClass {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
