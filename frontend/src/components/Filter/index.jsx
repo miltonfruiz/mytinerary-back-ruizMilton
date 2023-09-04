@@ -3,6 +3,9 @@ import Details from "../Details";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Accordion from "../Accordion";
+import { Link as Anchors } from "react-router-dom";
+import { FaAngleDoubleRight } from "react-icons/fa";
+import "./style.css";
 
 export default function Filter() {
   let cityInStores = useSelector((store) => store.cityReducer.city);
@@ -44,6 +47,17 @@ export default function Filter() {
               itineraryTags3={cityInStores[0].itineraries[2].tags}
             />
           ))}
+        </div>
+        <div className="mt-5">
+          <Anchors
+            to="/cities"
+            className="btn btn-outline-danger bton-title GoBack"
+          >
+            <p className="GoBack">
+              {" "}
+              Go Back! <FaAngleDoubleRight size={20} />
+            </p>{" "}
+          </Anchors>
         </div>
       </section>
     </>

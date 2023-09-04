@@ -9,7 +9,6 @@ export default function Cards({ cardLink, cardTitle, cardDescription, id }) {
   const dispatch = useDispatch();
   const handlerclick = () => {
     dispatch(cityActions.filter_city(id));
-    console.log(id);
   };
   return (
     <>
