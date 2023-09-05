@@ -17,7 +17,7 @@ const getItinerariesCity = async (req, res) => {
     );
     res.status(200).json({
       message: "The city has been founded successfully",
-      city: foundedCity,
+      city: foundedCity.itineraries,
     });
   } catch (error) {
     res.status(500).json({ message: error });
@@ -29,7 +29,7 @@ const getItineraryId = async (req, res) => {
     let foundItinerary = await Itinerary.findById(id);
     res.status(200).json({
       message: "The itinerary has been founded successfully",
-      itinerary: foundItinerary,
+      itinerary: foundItinerary.itineraries,
     });
   } catch (error) {
     res.status(500).json({ message: error });

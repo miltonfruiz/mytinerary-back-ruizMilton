@@ -9,13 +9,13 @@ export default function Fetch() {
   let input = useRef();
   let cityInStore = useSelector((store) => store.cityReducer.city);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(cityActions.get_city());
   }, []);
 
   let handleSubmit = (event) => {
     event.preventDefault();
+    console.log(input.current.value);
     if (input.current.value) {
       dispatch(cityActions.filter_city(input.current.value));
     } else {
