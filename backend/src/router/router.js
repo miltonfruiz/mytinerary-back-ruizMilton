@@ -22,6 +22,8 @@ const {
   itineraryDataVerification,
 } = require("../middlewares/itineraryVerification");
 
+const authRouter = require("./auth");
+
 router.get("/city", getCity);
 router.get("/city/:id", getCityId);
 router.get("/city/:city", getOneCity);
@@ -35,5 +37,7 @@ router.get("/itinerary/:id", getItineraryId);
 router.post("/itinerary", itineraryDataVerification, postItinerary);
 router.put("/itinerary", itineraryDataVerification, putItinerary);
 router.delete("/itinerary", itineraryDataVerification, deleteItinerary);
+
+router.use("/user", authRouter);
 
 module.exports = router;
