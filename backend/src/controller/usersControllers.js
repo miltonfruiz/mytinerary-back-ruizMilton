@@ -5,12 +5,12 @@ const userCreator = async (req, res) => {
     let payload = req.body;
     let existingUser = await User.findOne({ email: payload.email });
     if (existingUser) {
-      res.status(403).json({ message: "¡User already exists!" });
+      return res.status(403).json({ message: "x ¡User already exists! x" });
     }
-    let userCreate = await User.create(payload);
+    let userCreated = await User.create(payload);
     res.status(200).json({
       message: "User created successfully",
-      userCreate,
+      userCreated,
     });
   } catch (error) {
     res.status(400).json({
