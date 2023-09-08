@@ -33,7 +33,12 @@ const userSchema = Joi.object({
     "string.empty": "x ¡Empty uri, please try again! x",
     "any.required": "x ¡Uri required! x",
   }),
-  country: Joi.string().min(5).max(20).required(),
+  country: Joi.string().min(5).max(25).required().messages({
+    "string.min": "x ¡The country must be at least 4 characters long! x",
+    "string.max": "x ¡The country must have a maximum of 25 characters! x",
+    "string.empty": "x ¡Empty country, please try again! x",
+    "any.required": "x ¡Country required! x",
+  }),
 });
 
 const userDataVerification = (req, res, next) => {
