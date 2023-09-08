@@ -23,11 +23,16 @@ const userSchema = Joi.object({
   password: Joi.string().min(4).max(20).alphanum().required().messages({
     "string.min": "x ¡The password must be at least 4 characters long! x",
     "string.max": "x ¡The password must have a maximum of 20 characters! x",
+    "string.alphanum": "x ¡The password value only a-z A-Z and 0-9! x",
     "string.password": "x ¡Please enter your password! x",
     "string.empty": "x ¡Empty password, please try again! x",
     "any.required": "x ¡Password required! x",
   }),
-  images: Joi.string().uri().required(),
+  images: Joi.string().uri().required().messages({
+    "string.uri": "x ¡Please enter your uri! x",
+    "string.empty": "x ¡Empty uri, please try again! x",
+    "any.required": "x ¡Uri required! x",
+  }),
   country: Joi.string().min(5).max(20).required(),
 });
 
