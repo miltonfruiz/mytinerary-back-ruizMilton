@@ -3,10 +3,28 @@ const Joi = require("joi");
 const userSchema = Joi.object({
   name: Joi.string().min(3).max(20).required(),
   lastname: Joi.string().min(3).max(20).required(),
-  email: Joi.string().min(10).max(20).email().required(),
+  email: Joi.string().min(11).max(30).email().required().messages({
+    "string.min": "x ¡The email must be at least 11 characters long! x",
+    "string.max": "x ¡The email must have a maximum of 30 characters! x",
+    "string.email": "x ¡Please enter your email! x",
+    "string.empty": "x ¡Empty email, please try again! x",
+    "any.required": "x ¡Email required! x",
+  }),
   password: Joi.string().min(6).max(16).alphanum().required(),
   images: Joi.string().uri().required(),
   country: Joi.string().min(5).max(20).required(),
 });
 
-const userDataVerification = (req, res, next) => {};
+const userDataVerification = (req, res, next) => {
+  const payload = req.body;
+  const validatedUser = userSchema.validate(payload);
+  if (validatedUser.error) {
+    return res.status(400).json({
+      message: validatedUser.error.details.map((err) => err.message),
+    });
+  }
+  next();
+};
+module.exports = {
+  userDataVerification,
+};
