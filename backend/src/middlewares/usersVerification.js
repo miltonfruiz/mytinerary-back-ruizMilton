@@ -40,7 +40,6 @@ const userSchema = Joi.object({
     "any.required": "x ¡Country required! x",
   }),
 });
-
 const userDataVerification = (req, res, next) => {
   const payload = req.body;
   const validatedUser = userSchema.validate(payload, { abortEarly: false });
