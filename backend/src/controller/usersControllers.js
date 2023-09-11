@@ -21,22 +21,6 @@ const createAccount = async (req, res) => {
 };
 const login = async (req, res) => {
   try {
-    const { password, email } = req.body;
-    const foundedUser = await User.findOne({ email: email });
-    if (foundedUser) {
-      if (passwordVerify(password, foundedUser.password)) {
-        return (
-          res.status(200).json /
-          { message: "¡Successfully logged in!", user: foundedUser }
-        );
-      } else {
-        return res.status(400).json({
-          message: "x ¡Wrong password! x",
-        });
-      }
-    } else {
-      res.status(400).json({ message: "x ¡User not founded! x" });
-    }
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
