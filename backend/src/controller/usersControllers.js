@@ -18,6 +18,20 @@ const userCreator = async (req, res) => {
     });
   }
 };
+
+const login = async (req, res) => {
+  try {
+    const { password, email } = req.body;
+    const foundedUser = await User.findOne({ email: email });
+    if (foundedUser) {
+    } else {
+      res.status(400).json({ message: "User not founded" });
+    }
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+};
+
 module.exports = {
   userCreator,
 };

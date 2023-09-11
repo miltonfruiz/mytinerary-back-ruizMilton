@@ -10,6 +10,11 @@ const hashPassword = (req, res, next) => {
     res.status(500).json({ error: error });
   }
 };
+const passwordVerify = (passwordPlain, hashPassword) => {
+  const isValid = bcrypt.compareSync(passwordPlain, hashPassword);
+  return isValid;
+};
 module.exports = {
   hashPassword,
+  passwordVerify,
 };
