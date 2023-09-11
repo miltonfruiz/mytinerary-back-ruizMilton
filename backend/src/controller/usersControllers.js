@@ -1,3 +1,4 @@
+const { passwordVerify } = require("../middlewares/authVerification");
 const User = require("../models/Users");
 
 const userCreator = async (req, res) => {
@@ -24,6 +25,14 @@ const login = async (req, res) => {
     const { password, email } = req.body;
     const foundedUser = await User.findOne({ email: email });
     if (foundedUser) {
+      if (passwordVerify(password, foundedUser.password)) {
+        return (
+          res.status(200).json /
+          { message: "Successfully logged in", user: foundedUser }
+        );
+      } else {
+        return res.status(400).json({ message: "Wrong password" });
+      }
     } else {
       res.status(400).json({ message: "User not founded" });
     }
@@ -34,4 +43,5 @@ const login = async (req, res) => {
 
 module.exports = {
   userCreator,
+  login,
 };
