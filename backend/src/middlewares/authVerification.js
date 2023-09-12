@@ -1,5 +1,6 @@
 const bcrypt = require("bcrypt");
 const Users = require("../models/Users");
+const jwt = require("jsonwebtoken");
 
 const hashPassword = (req, res, next) => {
   try {
@@ -31,6 +32,17 @@ const userVerify = async (req, res, next) => {
     res.status(400).json({ message: "x ¡User not founded! x" });
   }
 };
+
+const generatedToken = (req, res, next) => {
+  try {
+    let token;
+    req.token = token;
+    next();
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
 module.exports = {
   hashPassword,
   passwordVerify,
