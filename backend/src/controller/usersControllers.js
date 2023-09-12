@@ -21,6 +21,9 @@ const createAccount = async (req, res) => {
 };
 const login = async (req, res) => {
   try {
+    res.status(200).json({
+      message: "¡Successfully logged in!",
+    });
   } catch (error) {
     res.status(400).json({ message: error.message });
   }
