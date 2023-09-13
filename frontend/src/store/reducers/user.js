@@ -7,9 +7,9 @@ const initialState = {
     _id: "",
   },
 };
-const userReducer = createReducer(initialState, (builder) => {
+const userReducers = createReducer(initialState, (builder) => {
   return builder.addCase(userActions.sign_in.fulfilled, (state, action) => {
-    return { user: action.payload.user };
+    console.log({ user: action.payload.user });
   });
 });
-export default userReducer;
+export default userReducers;

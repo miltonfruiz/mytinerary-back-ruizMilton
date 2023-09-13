@@ -1,27 +1,23 @@
 import React, { useEffect, useRef } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import userActions from "../../store/actions/user";
 import "./style.css";
-import axios from "axios";
 
 export default function LogIn() {
+  let userInStore = useSelector((store) => store.userReducer.user);
   let inputEmail = useRef();
   let inputPassword = useRef();
+  const dispatch = useDispatch();
 
-  let handleSignIn = () => {
-    axios
-      .post("http://localhost:3000/api/user/login", {
-        email: inputEmail.current.value,
-        password: inputPassword.current.value,
-      })
-      .then((response) => {
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("response", JSON.stringify(response.data));
+  useEffect(() => {
+    dispatch(userActions.sign_in());
+  }, []);
 
-        let token = JSON.parse(localStorage.getItem("response")).token;
-        console.log(token);
-      })
-      .catch((error) =>
-        error.response.data.message.forEach((message) => console.log(error))
-      );
+  let handleSignIn = (event) => {
+    event.preventDefault();
+    dispatch(
+      userActions.sign_in(inputEmail.current.value, inputPassword.current.value)
+    );
   };
   return (
     <>
