@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Cities from "./pages/Cities";
 import Details from "./pages/Details";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Login from "./components/Login";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       { path: "/cities", element: <Cities /> },
       { path: "/details", element: <Details /> },
+      { path: "/login", element: <Login /> },
     ],
   },
   // {
