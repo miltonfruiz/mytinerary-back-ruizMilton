@@ -1,4 +1,3 @@
-const { passwordVerify } = require("../middlewares/authVerification");
 const User = require("../models/Users");
 
 const createAccount = async (req, res) => {

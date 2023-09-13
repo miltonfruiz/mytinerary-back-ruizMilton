@@ -18,5 +18,6 @@ authRouter.post(
   generatedToken,
   login
 );
+authRouter.post("/authenticated", generatedToken, login);
 
 module.exports = authRouter;
