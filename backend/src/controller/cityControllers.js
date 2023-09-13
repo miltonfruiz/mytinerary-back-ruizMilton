@@ -3,7 +3,7 @@ const City = require("../models/City");
 const getCity = async (req, res) => {
   try {
     const city = await City.find().populate("itineraries");
-    res.status(200).json({ cities: city });
+    res.status(200).json(city);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }

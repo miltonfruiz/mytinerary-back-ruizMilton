@@ -4,8 +4,8 @@ import Layout from "./layouts/Layouts";
 import Home from "./pages/Home";
 import Cities from "./pages/Cities";
 import Details from "./pages/Details";
+import Login from "./pages/Login";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Login from "./components/Login";
 
 const router = createBrowserRouter([
   {

@@ -1,12 +1,16 @@
 import React from "react";
+import "./style.css";
 
-export default function Login() {
+export default function LogIn() {
   return (
     <>
-      <form>
+      <div className="row justify-content-center d-flex ">
+        <h2 className="col-8 mt-5 mb-5">Login</h2>
+      </div>
+      <form className="col align-self-center">
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
-            Email address
+            Email
           </label>
           <input
             type="email"
