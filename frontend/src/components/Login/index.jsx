@@ -13,10 +13,13 @@ export default function LogIn() {
         password: inputPassword.current.value,
       })
       .then((response) => {
-        console.log(response.data);
+        console.log(response.data.token);
+        localStorage.setItem("token", response.data.token);
+        let token = localStorage.getItem("token");
+        console.log(token);
       })
       .catch((error) =>
-        error.response.data.message.forEach((message) => console.log(message))
+        error.response.data.message.forEach((message) => console.log(error))
       );
   };
   return (
@@ -50,6 +53,7 @@ export default function LogIn() {
               className="form-control"
               id="exampleInputPassword1"
               ref={inputPassword}
+              autoComplete="on"
             />
           </div>
           <div className="mb-3 ms-2 mt-4">
