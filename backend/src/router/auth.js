@@ -5,6 +5,7 @@ const {
   hashPassword,
   userVerify,
   passwordVerify,
+  generatedToken,
 } = require("../middlewares/authVerification");
 const authRouter = express.Router();
 
@@ -14,6 +15,7 @@ authRouter.post(
   userDataVerification,
   userVerify,
   passwordVerify,
+  generatedToken,
   login
 );
 

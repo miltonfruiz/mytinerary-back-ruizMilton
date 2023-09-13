@@ -32,19 +32,21 @@ const userVerify = async (req, res, next) => {
     res.status(400).json({ message: "x ¡User not founded! x" });
   }
 };
-
 const generatedToken = (req, res, next) => {
   try {
-    let token;
+    let secretKey = "secretPassword";
+    let token = jwt.sign({ email: req.body.email }, secretKey, {
+      expiresIn: 60 * 2,
+    });
     req.token = token;
     next();
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
-
 module.exports = {
   hashPassword,
   passwordVerify,
   userVerify,
+  generatedToken,
 };
