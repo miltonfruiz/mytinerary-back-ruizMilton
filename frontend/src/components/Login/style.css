@@ -1,1 +1,21 @@
-
+.form-label,
+.form-text {
+  font-size: 12px;
+}
+.buttonSignIn {
+  font-size: 12px;
+  width: 80px;
+  border-radius: 5px;
+}
+.formContainer {
+  height: 350px;
+  border-radius: 3px;
+  background-color: whitesmoke;
+  border: 1px solid rgba(76, 107, 107, 0.856);
+  box-shadow: rgba(64, 114, 112, 0.856) 0px 5px 15px;
+}
+.createClass {
+  font-size: 11px;
+  display: flex;
+  justify-self: start;
+}
