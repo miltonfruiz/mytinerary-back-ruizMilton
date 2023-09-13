@@ -1,5 +1,9 @@
 const express = require("express");
-const { login, createAccount } = require("../controller/usersControllers");
+const {
+  login,
+  createAccount,
+  authenticated,
+} = require("../controller/usersControllers");
 const { userDataVerification } = require("../middlewares/usersVerification");
 const {
   hashPassword,
@@ -18,6 +22,6 @@ authRouter.post(
   generatedToken,
   login
 );
-authRouter.post("/authenticated", generatedToken, login);
+authRouter.post("/authenticated", generatedToken, authenticated);
 
 module.exports = authRouter;
