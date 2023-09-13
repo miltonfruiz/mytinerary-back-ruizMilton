@@ -24,3 +24,6 @@ const sign_in = createAsyncThunk("sign_in", async (payload) => {
     console.log(error.message);
   }
 });
+const userActions = { sign_in };
+
+export default userActions;
