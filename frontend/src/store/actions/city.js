@@ -44,23 +44,22 @@ const reset_city = createAction("reset_city", () => {
     city: city,
   };
 });
-const post_login = createAsyncThunk("post_login", async (email, pass) => {
-  try {
-    const login = await axios
-      .get("http://localhost:3000/api/user/login", { email, pass })
-      .then((response) => response.data);
-    return {
-      log: login,
-    };
-  } catch (error) {
-    console.log(error.message);
-  }
-});
+// const post_login = createAsyncThunk("post_login", async (email, pass) => {
+//   try {
+//     const login = await axios
+//       .post("http://localhost:3000/api/user/login", email, pass)
+//       .then((response) => response.data);
+//     return {
+//       log: login,
+//     };
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// });
 const cityActions = {
   get_city,
   filter_city,
   filter_city_name,
   reset_city,
-  post_login,
 };
 export default cityActions;
