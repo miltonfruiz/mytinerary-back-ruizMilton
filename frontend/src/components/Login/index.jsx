@@ -13,9 +13,10 @@ export default function LogIn() {
         password: inputPassword.current.value,
       })
       .then((response) => {
-        console.log(response.data.token);
         localStorage.setItem("token", response.data.token);
-        let token = localStorage.getItem("token");
+        localStorage.setItem("response", JSON.stringify(response.data));
+
+        let token = JSON.parse(localStorage.getItem("response")).token;
         console.log(token);
       })
       .catch((error) =>
