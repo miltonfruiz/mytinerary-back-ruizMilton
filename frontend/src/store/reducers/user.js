@@ -17,6 +17,9 @@ const userReducers = createReducer(initialState, (builder) => {
     })
     .addCase(userActions.log_out.fulfilled, (state, action) => {
       return initialState;
+    })
+    .addCase(userActions.register.fulfilled, (state, action) => {
+      return { user: action.payload, user };
     });
 });
 export default userReducers;
