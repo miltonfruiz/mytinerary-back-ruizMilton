@@ -5,6 +5,9 @@ const getCity = async (req, res) => {
   if (req.query.city) {
     queryParams.city = { $regex: req.query.city, $options: "i" };
   }
+  if (req.query.country) {
+    queryParams.country = { $regex: req.query.country, $options: "i" };
+  }
   try {
     const city = await City.find(queryParams).populate("itineraries");
     res.status(200).json(city);

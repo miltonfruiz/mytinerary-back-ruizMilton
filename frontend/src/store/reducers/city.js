@@ -27,7 +27,7 @@ const cityReducers = createReducer(initialState, (builder) => {
       return newState;
     })
     .addCase(cityActions.filter_city_name.fulfilled, (state, action) => {
-      const newState = { ...state, city: [action.payload.city] };
+      const newState = { ...state, city: action.payload.city };
       return newState;
     })
     .addCase(cityActions.reset_city, (state, action) => {

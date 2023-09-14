@@ -16,7 +16,7 @@ export default function Fetch() {
   let handleSubmit = (event) => {
     event.preventDefault();
     if (input.current.value) {
-      dispatch(cityActions.filter_city(input.current.value));
+      dispatch(cityActions.filter_city_name(input.current.value));
     } else {
       dispatch(cityActions.get_city());
     }

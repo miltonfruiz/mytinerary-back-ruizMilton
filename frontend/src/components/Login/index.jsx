@@ -4,10 +4,8 @@ import userActions from "../../store/actions/user";
 import "./style.css";
 import { GoogleLogin } from "@react-oauth/google";
 import jwtdecode from "jwt-decode";
-import { useNavigate } from "react-router-dom";
 
 export default function LogIn() {
-  let navigate = useNavigate();
   let inputEmail = useRef();
   let inputPassword = useRef();
   const dispatch = useDispatch();
@@ -22,17 +20,10 @@ export default function LogIn() {
   const signWithGoogle = (credentialResponse) => {
     const userData = jwtdecode(credentialResponse.credential);
     dispatch(
-      userActions
-        .sign_in({
-          email: userData.email,
-          password: userData.given_name + userData.sub,
-        })
-        .then((response) => {
-          if (response.payload.success) {
-            navigate("/");
-          }
-        })
-        .catch((error) => console.log(error))
+      userActions.sign_in({
+        email: userData.email,
+        password: userData.given_name + userData.sub,
+      })
     );
   };
   return (
@@ -88,7 +79,7 @@ export default function LogIn() {
             Sign In
           </button>
           <GoogleLogin
-            text="signup_with"
+            text="signin_with"
             size="small "
             onSuccess={signWithGoogle}
             onError={() => {
