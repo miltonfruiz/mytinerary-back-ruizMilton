@@ -1,8 +1,12 @@
 const City = require("../models/City");
 
 const getCity = async (req, res) => {
+  const queryParams = {};
+  if (req.query.city) {
+    queryParams.city = { $regex: req.query.city, $options: "i" };
+  }
   try {
-    const city = await City.find().populate("itineraries");
+    const city = await City.find(queryParams).populate("itineraries");
     res.status(200).json(city);
   } catch (error) {
     res.status(500).json({ message: error.message });

@@ -12,7 +12,7 @@ const sign_in = createAsyncThunk("sign_in", async (payload) => {
       .then((response) => {
         localStorage.setItem("token", response.data.token);
         console.log("Successfully logged in");
-        return response.data.user;
+        return response.data;
       })
       .catch((error) =>
         error.response.data.message.forEach((message) => console.log(message))
@@ -36,7 +36,7 @@ const authenticate = createAsyncThunk("authenticate", async () => {
       .then((response) => {
         console.log("¡Authenticated successfully!");
         localStorage.setItem("token", response.data.token);
-        return response.data.user;
+        return response.data;
       });
     return {
       user: user,

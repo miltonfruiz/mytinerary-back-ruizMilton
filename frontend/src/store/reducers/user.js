@@ -14,7 +14,7 @@ const initialState = {
 const userReducers = createReducer(initialState, (builder) => {
   return builder
     .addCase(userActions.sign_in.fulfilled, (state, action) => {
-      return { user: action.payload.user };
+      return { user: action.payload };
     })
     .addCase(userActions.authenticate.fulfilled, (state, action) => {
       return { user: action.payload };
