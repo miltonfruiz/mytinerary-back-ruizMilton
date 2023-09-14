@@ -107,9 +107,9 @@ export default function RegisterForm() {
             </label>
             <select id="inputState" className="form-select">
               <option>Choose...</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
+              <option ref={inputCountry}>1</option>
+              <option ref={inputCountry}>2</option>
+              <option ref={inputCountry}>3</option>
             </select>
           </div>
           <div className="col-12 mt-2">
