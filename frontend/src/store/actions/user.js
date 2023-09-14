@@ -45,15 +45,15 @@ const authenticate = createAsyncThunk("authenticate", async () => {
     console.log(error.message);
   }
 });
-const sign_out = createAsyncThunk("sign_out", async () => {
+const log_out = createAsyncThunk("log_out", async () => {
   try {
-    axios("http://localhost:3000/api/user/sign_out").then((response) =>
+    axios("http://localhost:3000/api/user/logout").then((response) =>
       console.log(response)
     );
   } catch (error) {
     console.log(error.message);
   }
 });
-const userActions = { sign_in, authenticate, sign_out };
+const userActions = { sign_in, authenticate, log_out };
 
 export default userActions;
