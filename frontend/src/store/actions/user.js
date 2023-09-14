@@ -54,5 +54,32 @@ const log_out = createAsyncThunk("log_out", async () => {
     console.log(error.message);
   }
 });
-const userActions = { sign_in, authenticate, log_out };
+const register = createAsyncThunk("register", async (payload) => {
+  try {
+    let { name, lastName, email, password, images, country } = payload;
+    const user = await axios
+      .post("http://localhost:3000/api/user/register", {
+        name: name,
+        lastName: lastName,
+        email: email,
+        password: password,
+        images: images,
+        country: country,
+      })
+      .then((response) => {
+        localStorage.setItem("token", response.data.token);
+        console.log("¡Successfully created account!");
+        return response.data.user;
+      })
+      .catch((error) =>
+        error.response.data.message.forEach((message) => console.log(message))
+      );
+    return {
+      user: user,
+    };
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+const userActions = { sign_in, authenticate, log_out, register };
 export default userActions;
