@@ -3,8 +3,12 @@ import userActions from "../actions/user";
 
 const initialState = {
   user: {
+    name: "",
+    lastName: "",
     email: "",
     _id: "",
+    images: "",
+    country: "",
   },
 };
 const userReducers = createReducer(initialState, (builder) => {
