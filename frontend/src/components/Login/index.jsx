@@ -8,7 +8,6 @@ export default function LogIn() {
   let inputEmail = useRef();
   let inputPassword = useRef();
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(userActions.sign_in());
   }, []);
@@ -63,7 +62,7 @@ export default function LogIn() {
             </a>
           </div>
           <button
-            onClick={() => handleSignIn()}
+            onSubmit={() => handleSignIn()}
             type="submit"
             className="btn btn-outline-primary buttonSignIn mb-4"
           >
