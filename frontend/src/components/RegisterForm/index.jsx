@@ -29,6 +29,16 @@ export default function RegisterForm() {
 
   const signUpGoogle = (credentialResponse) => {
     let dataUser = jwtdecode(credentialResponse.credential);
+    dispatch(
+      userActions.sign_in({
+        name: dataUser.name,
+        lastName: dataUser.lastName,
+        email: dataUser.email,
+        password: dataUser.password,
+        images: dataUser.images,
+        country: dataUser.country,
+      })
+    );
   };
   return (
     <>
@@ -112,6 +122,8 @@ export default function RegisterForm() {
               Register
             </button>
             <GoogleLogin
+              text="signup_with"
+              size="large "
               onSuccess={signUpGoogle}
               onError={() => {
                 console.log("Login Failed");
