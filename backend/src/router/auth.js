@@ -3,6 +3,7 @@ const {
   login,
   createAccount,
   authenticated,
+  logout,
 } = require("../controller/usersControllers");
 const { userDataVerification } = require("../middlewares/usersVerification");
 const {

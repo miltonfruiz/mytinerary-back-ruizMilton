@@ -48,8 +48,16 @@ const authenticated = async (req, res) => {
     }
   }
 };
+const logout = async (req, res) => {
+  try {
+    res.status(200).json({ message: "Logged out", token: req.token });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 module.exports = {
   createAccount,
   login,
   authenticated,
+  logout,
 };
