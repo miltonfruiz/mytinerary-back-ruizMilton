@@ -10,6 +10,7 @@ const {
   userVerify,
   passwordVerify,
   generatedToken,
+  passportVerify,
 } = require("../middlewares/authVerification");
 const authRouter = express.Router();
 
@@ -22,6 +23,11 @@ authRouter.post(
   generatedToken,
   login
 );
-authRouter.post("/authenticated", generatedToken, authenticated);
+authRouter.post(
+  "/authenticated",
+  passportVerify.authenticate("jwt", { session: false }),
+  generatedToken,
+  authenticated
+);
 
 module.exports = authRouter;
