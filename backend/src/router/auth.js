@@ -16,14 +16,7 @@ const {
 const authRouter = express.Router();
 
 authRouter.post("/register", userDataVerification, hashPassword, createAccount);
-authRouter.post(
-  "/login",
-  userDataVerification,
-  userVerify,
-  passwordVerify,
-  generatedToken,
-  login
-);
+authRouter.post("/login", userVerify, passwordVerify, generatedToken, login);
 authRouter.post(
   "/authenticated",
   passportVerify.authenticate("jwt", { session: false }),

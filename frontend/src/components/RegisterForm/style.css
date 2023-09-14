@@ -1,0 +1,8 @@
+.formRegister {
+  width: 400px;
+  height: 650px;
+  border-radius: 3px;
+  background-color: whitesmoke;
+  border: 1px solid rgba(76, 107, 107, 0.856);
+  box-shadow: rgba(64, 114, 112, 0.856) 0px 5px 15px;
+}

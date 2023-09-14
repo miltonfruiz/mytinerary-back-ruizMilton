@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import Cities from "./pages/Cities";
 import Details from "./pages/Details";
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       { path: "/cities", element: <Cities /> },
       { path: "/details", element: <Details /> },
       { path: "/login", element: <Login /> },
+      { path: "/register", element: <Register /> },
     ],
   },
   // {

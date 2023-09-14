@@ -1,28 +1,20 @@
-import React, { useEffect, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useRef } from "react";
+import { useDispatch } from "react-redux";
 import userActions from "../../store/actions/user";
 import "./style.css";
-import { GoogleLogin } from "@react-oauth/google";
-import jwtdecode from "jwt-decode";
 
 export default function LogIn() {
-  let userInStore = useSelector((store) => store.userReducer.user);
   let inputEmail = useRef();
   let inputPassword = useRef();
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(userActions.sign_in());
-  }, []);
 
-  let handleSignIn = (event) => {
-    event.preventDefault();
+  let handleSignIn = () => {
     dispatch(
-      userActions.sign_in(inputEmail.current.value, inputPassword.current.value)
+      userActions.sign_in({
+        email: inputEmail.current.value,
+        password: inputPassword.current.value,
+      })
     );
-  };
-
-  const signUpGoogle = (credentialResponse) => {
-    let dataUser = jwtdecode(credentialResponse.credential);
   };
   return (
     <>
@@ -68,18 +60,12 @@ export default function LogIn() {
             </a>
           </div>
           <button
-            onSubmit={() => handleSignIn()}
+            onClick={() => handleSignIn()}
             type="submit"
             className="btn btn-outline-primary buttonSignIn mb-4"
           >
             Sign In
           </button>
-          <GoogleLogin
-            onSuccess={signUpGoogle}
-            onError={() => {
-              console.log("Login Failed");
-            }}
-          />
         </form>
       </div>
     </>
