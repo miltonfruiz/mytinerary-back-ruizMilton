@@ -6,7 +6,6 @@ const {
   postCity,
   deleteCity,
   updateCity,
-  getOneCity,
 } = require("../controller/cityControllers");
 const { cityDataVerification } = require("../middlewares/cityVerification");
 
@@ -26,7 +25,6 @@ const authRouter = require("./auth");
 
 router.get("/cities", getCity);
 router.get("/cities/:id", getCityId);
-//router.get("/cities/:city", getOneCity);
 router.post("/cities", cityDataVerification, postCity);
 router.delete("/cities", cityDataVerification, deleteCity);
 router.put("/cities", cityDataVerification, updateCity);

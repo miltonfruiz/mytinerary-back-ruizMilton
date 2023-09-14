@@ -53,7 +53,7 @@ export default function Fetch() {
               />
             ))
           ) : (
-            <h2>No hay resultados</h2>
+            <h2 className="mt-5">No hay resultados</h2>
           )}
         </div>
       </section>
