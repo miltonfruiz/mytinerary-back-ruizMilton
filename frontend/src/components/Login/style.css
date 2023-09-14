@@ -1,14 +1,15 @@
 .form-label,
-.form-text {
+.form-text,
+.form-control {
   font-size: 12px;
 }
 .buttonSignIn {
   font-size: 12px;
-  width: 80px;
+  width: 90px;
   border-radius: 5px;
 }
 .formContainer {
-  height: 350px;
+  height: 340px;
   border-radius: 3px;
   background-color: whitesmoke;
   border: 1px solid rgba(76, 107, 107, 0.856);
