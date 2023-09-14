@@ -13,8 +13,8 @@ export default function RegisterForm() {
   let inputImages = useRef();
   let inputCountry = useRef();
   const dispatch = useDispatch();
-
-  let handleRegister = () => {
+  let handleRegister = (event) => {
+    event.preventDefault();
     dispatch(
       userActions.register({
         name: inputName.current.value,
@@ -26,15 +26,14 @@ export default function RegisterForm() {
       })
     );
   };
-
   const signUpGoogle = (credentialResponse) => {
     let dataUser = jwtdecode(credentialResponse.credential);
     dispatch(
-      userActions.sign_in({
+      userActions.register({
         name: dataUser.name,
         lastName: dataUser.lastName,
         email: dataUser.email,
-        password: dataUser.password,
+        password: dataUser.given_name + dataUser.sub,
         images: dataUser.images,
         country: dataUser.country,
       })
@@ -46,7 +45,7 @@ export default function RegisterForm() {
         <h2 className="col-8 mt-5 mb-5">Register</h2>
       </div>
       <div className="row justify-content-center d-flex">
-        <form className="formRegister">
+        <form className="formRegister" onSubmit={handleRegister}>
           <div className="col-12 mt-3">
             <label htmlFor="inputEmail4" className="form-label">
               Email
@@ -117,7 +116,6 @@ export default function RegisterForm() {
             <button
               type="submit"
               className="btn btn-outline-primary mb-4 mt-3 buttonRegister"
-              onClick={() => handleRegister()}
             >
               Register
             </button>

@@ -2,12 +2,15 @@ import React, { useRef } from "react";
 import { useDispatch } from "react-redux";
 import userActions from "../../store/actions/user";
 import "./style.css";
+import { GoogleLogin } from "@react-oauth/google";
+import jwtdecode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 export default function LogIn() {
+  let navigate = useNavigate();
   let inputEmail = useRef();
   let inputPassword = useRef();
   const dispatch = useDispatch();
-
   let handleSignIn = () => {
     dispatch(
       userActions.sign_in({
@@ -16,13 +19,32 @@ export default function LogIn() {
       })
     );
   };
+  const signWithGoogle = (credentialResponse) => {
+    const userData = jwtdecode(credentialResponse.credential);
+    dispatch(
+      userActions
+        .sign_in({
+          email: userData.email,
+          password: userData.given_name + userData.sub,
+        })
+        .then((response) => {
+          if (response.payload.success) {
+            navigate("/");
+          }
+        })
+        .catch((error) => console.log(error))
+    );
+  };
   return (
     <>
       <div className="row justify-content-center d-flex ">
         <h2 className="col-8 mt-5 mb-5">Login</h2>
       </div>
       <div className="row justify-content-center d-flex divFormContainer">
-        <form className="col-3 align-self-center formContainer">
+        <form
+          onSubmit={handleSignIn}
+          className="col-3 align-self-center formContainer"
+        >
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label mt-5">
               Email
@@ -60,12 +82,19 @@ export default function LogIn() {
             </a>
           </div>
           <button
-            onClick={() => handleSignIn()}
             type="submit"
             className="btn btn-outline-primary buttonSignIn mb-4"
           >
             Sign In
           </button>
+          <GoogleLogin
+            text="signup_with"
+            size="small "
+            onSuccess={signWithGoogle}
+            onError={() => {
+              console.log("Login Failed");
+            }}
+          />
         </form>
       </div>
     </>
