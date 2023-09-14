@@ -9,7 +9,6 @@ export default function Fetch() {
   let input = useRef();
   let cityInStore = useSelector((store) => store.cityReducer.city);
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(cityActions.get_city());
   }, []);

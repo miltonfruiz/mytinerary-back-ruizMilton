@@ -2,7 +2,7 @@ const City = require("../models/City");
 
 const getCity = async (req, res) => {
   try {
-    let city = await City.find().populate("itineraries");
+    const city = await City.find().populate("itineraries");
     res.status(200).json(city);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -19,10 +19,13 @@ const getCityId = async (req, res) => {
 };
 const getOneCity = async (req, res) => {
   try {
-    const city = await City.find(req.params).populate("itineraries");
+    let { city } = req.params;
+    let fooundedCity = await City.findOne({ city: city }).populate(
+      "itineraries"
+    );
     res.status(200).json({
       message: "The city has been founded successfully!",
-      city: city,
+      city: fooundedCity.city,
     });
   } catch (error) {
     res.status(500).json({ message: error });
@@ -30,8 +33,7 @@ const getOneCity = async (req, res) => {
 };
 const postCity = async (req, res) => {
   try {
-    let payload = req.body;
-    let createCity = await City.create(payload);
+    const createCity = await City.create(req.body);
     res.status(201).json({
       message: "The city has been added successfully!",
       newCity: createCity,

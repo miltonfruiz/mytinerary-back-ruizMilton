@@ -44,6 +44,10 @@ const reset_city = createAction("reset_city", () => {
     city: city,
   };
 });
-
-const cityActions = { get_city, filter_city, filter_city_name, reset_city };
+const cityActions = {
+  get_city,
+  filter_city,
+  filter_city_name,
+  reset_city,
+};
 export default cityActions;
