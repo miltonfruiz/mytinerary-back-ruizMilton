@@ -2,6 +2,8 @@ import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import userActions from "../../store/actions/user";
 import "./style.css";
+import { GoogleLogin } from "@react-oauth/google";
+import jwtdecode from "jwt-decode";
 
 export default function LogIn() {
   let userInStore = useSelector((store) => store.userReducer.user);
@@ -17,6 +19,10 @@ export default function LogIn() {
     dispatch(
       userActions.sign_in(inputEmail.current.value, inputPassword.current.value)
     );
+  };
+
+  const signUpGoogle = (credentialResponse) => {
+    let dataUser = jwtdecode(credentialResponse.credential);
   };
   return (
     <>
@@ -68,6 +74,12 @@ export default function LogIn() {
           >
             Sign In
           </button>
+          <GoogleLogin
+            onSuccess={signUpGoogle}
+            onError={() => {
+              console.log("Login Failed");
+            }}
+          />
         </form>
       </div>
     </>
