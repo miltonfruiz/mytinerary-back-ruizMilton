@@ -55,5 +55,4 @@ const log_out = createAsyncThunk("log_out", async () => {
   }
 });
 const userActions = { sign_in, authenticate, log_out };
-
 export default userActions;

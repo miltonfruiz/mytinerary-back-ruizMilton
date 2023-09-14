@@ -29,5 +29,9 @@ authRouter.post(
   generatedToken,
   authenticated
 );
-
+authRouter.post(
+  "/logout",
+  passportVerify.authenticate("jwt", { session: false }),
+  logout
+);
 module.exports = authRouter;
