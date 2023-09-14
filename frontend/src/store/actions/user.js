@@ -47,9 +47,9 @@ const authenticate = createAsyncThunk("authenticate", async () => {
 });
 const log_out = createAsyncThunk("log_out", async () => {
   try {
-    axios("http://localhost:3000/api/user/logout").then((response) =>
-      console.log(response)
-    );
+    axios("http://localhost:3000/api/user/logout").then((response) => {
+      localStorage.removeItem("token");
+    });
   } catch (error) {
     console.log(error.message);
   }

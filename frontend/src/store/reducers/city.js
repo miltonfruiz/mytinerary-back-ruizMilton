@@ -16,7 +16,6 @@ const initialState = {
     },
   ],
 };
-
 const cityReducers = createReducer(initialState, (builder) => {
   return builder
     .addCase(cityActions.get_city.fulfilled, (state, action) => {
