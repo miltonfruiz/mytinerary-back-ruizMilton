@@ -4,7 +4,6 @@ import userActions from "../../store/actions/user";
 import "./style.css";
 import { GoogleLogin } from "@react-oauth/google";
 import jwtdecode from "jwt-decode";
-import { useNavigate } from "react-router-dom";
 
 export default function RegisterForm() {
   let inputName = useRef();
@@ -18,7 +17,6 @@ export default function RegisterForm() {
   useEffect(() => {
     dispatch(userActions.register());
   }, []);
-  let navigate = useNavigate();
   let handlerRegister = (event) => {
     event.preventDefault();
     dispatch(
@@ -30,20 +28,18 @@ export default function RegisterForm() {
         images: inputImages.current.value,
         country: inputCountry.current.value,
       })
-    ).then(() => {
-      navigate("/cities");
-    });
+    );
   };
   const signUpGoogle = (credentialResponse) => {
     let dataUser = jwtdecode(credentialResponse.credential);
+    console.log(dataUser);
     dispatch(
       userActions.register({
         name: dataUser.name,
-        lastName: dataUser.lastName,
+        lastName: dataUser.family_name,
         email: dataUser.email,
-        password: dataUser.given_name + dataUser.sub,
-        images: dataUser.images,
-        country: dataUser.country,
+        password: dataUser.sub,
+        images: dataUser.picture,
       })
     );
   };

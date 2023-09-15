@@ -12,10 +12,22 @@ const sign_in = createAsyncThunk("sign_in", async (payload) => {
       })
       .then((response) => {
         localStorage.setItem("token", response.data.token);
-        Swal.fire({
-          icon: "success",
-          title: "Successfully logged in!",
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
         });
+
+        Toast.fire({
+          icon: "success",
+          title: "Signed in successfully!!!",
+        }).then(() => window.location.replace("/cities"));
         return response.data.user;
       })
       .catch((error) => {
@@ -45,7 +57,7 @@ const authenticate = createAsyncThunk("authenticate", async () => {
       .then((response) => {
         console.log("¡Authenticated successfully!");
         localStorage.setItem("token", response.data.token);
-        return response.data;
+        return response.data.user;
       });
     return {
       user: user,
@@ -80,7 +92,7 @@ const register = createAsyncThunk("register", async (payload) => {
         Swal.fire({
           icon: "success",
           title: "¡Successfully created account!",
-        });
+        }).then(() => window.location.replace("/cities"));
         return response.data.user;
       })
       .catch((error) => {

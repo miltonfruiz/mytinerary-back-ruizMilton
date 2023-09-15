@@ -23,7 +23,6 @@ const schemaUsers = new Schema({
   },
   country: {
     type: String,
-    required: true,
   },
 });
 const Users = model("Users", schemaUsers);
