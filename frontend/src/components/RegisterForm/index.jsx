@@ -4,6 +4,7 @@ import userActions from "../../store/actions/user";
 import "./style.css";
 import { GoogleLogin } from "@react-oauth/google";
 import jwtdecode from "jwt-decode";
+import { useNavigate } from "react-router-dom";
 
 export default function RegisterForm() {
   let inputName = useRef();
@@ -17,8 +18,8 @@ export default function RegisterForm() {
   useEffect(() => {
     dispatch(userActions.register());
   }, []);
-
-  let handleRegister = (event) => {
+  let navigate = useNavigate();
+  let handlerRegister = (event) => {
     event.preventDefault();
     dispatch(
       userActions.register({
@@ -29,7 +30,9 @@ export default function RegisterForm() {
         images: inputImages.current.value,
         country: inputCountry.current.value,
       })
-    );
+    ).then(() => {
+      navigate("/cities");
+    });
   };
   const signUpGoogle = (credentialResponse) => {
     let dataUser = jwtdecode(credentialResponse.credential);
@@ -50,7 +53,7 @@ export default function RegisterForm() {
         <h2 className="col-8 mt-5 mb-5">Register</h2>
       </div>
       <div className="row justify-content-center d-flex">
-        <form className="formRegister" onSubmit={handleRegister}>
+        <form className="formRegister" onSubmit={handlerRegister}>
           <div className="col-12 mt-3">
             <label htmlFor="inputEmail4" className="form-label">
               Email

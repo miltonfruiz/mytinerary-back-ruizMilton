@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const sign_in = createAsyncThunk("sign_in", async (payload) => {
   try {
@@ -11,12 +12,20 @@ const sign_in = createAsyncThunk("sign_in", async (payload) => {
       })
       .then((response) => {
         localStorage.setItem("token", response.data.token);
-        console.log("Successfully logged in");
+        Swal.fire({
+          icon: "success",
+          title: "Successfully logged in!",
+        });
         return response.data.user;
       })
-      .catch((error) =>
-        error.response.data.message.forEach((message) => console.log(message))
-      );
+      .catch((error) => {
+        let errorMessages = error.response.data.message;
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: errorMessages,
+        });
+      });
     return {
       user: user,
     };
@@ -68,11 +77,19 @@ const register = createAsyncThunk("register", async (payload) => {
       })
       .then((response) => {
         localStorage.setItem("token", response.data.token);
-        console.log("¡Successfully created account!");
+        Swal.fire({
+          icon: "success",
+          title: "¡Successfully created account!",
+        });
         return response.data.user;
       })
       .catch((error) => {
-        error.response.data.message.forEach((message) => console.log(message));
+        let errorMessages = error.response.data.message;
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: errorMessages,
+        });
       });
     return {
       user: user,
