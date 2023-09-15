@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import userActions from "../../store/actions/user";
 import "./style.css";
@@ -9,6 +9,11 @@ export default function LogIn() {
   let inputEmail = useRef();
   let inputPassword = useRef();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(userActions.sign_in());
+  }, []);
+
   let handleSignIn = () => {
     dispatch(
       userActions.sign_in({

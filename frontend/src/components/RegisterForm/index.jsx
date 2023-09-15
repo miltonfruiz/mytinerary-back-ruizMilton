@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import userActions from "../../store/actions/user";
 import "./style.css";
@@ -13,6 +13,11 @@ export default function RegisterForm() {
   let inputImages = useRef();
   let inputCountry = useRef();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(userActions.register());
+  }, []);
+
   let handleRegister = (event) => {
     event.preventDefault();
     dispatch(
@@ -107,9 +112,9 @@ export default function RegisterForm() {
             </label>
             <select id="inputState" className="form-select">
               <option>Choose...</option>
-              <option ref={inputCountry}>1</option>
-              <option ref={inputCountry}>2</option>
-              <option ref={inputCountry}>3</option>
+              <option ref={inputCountry}>Argenina</option>
+              <option ref={inputCountry}>Brasil</option>
+              <option ref={inputCountry}>Colombia</option>
             </select>
           </div>
           <div className="col-12 mt-2">

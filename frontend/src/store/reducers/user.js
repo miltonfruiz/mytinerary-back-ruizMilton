@@ -23,7 +23,7 @@ const userReducers = createReducer(initialState, (builder) => {
       return initialState;
     })
     .addCase(userActions.register.fulfilled, (state, action) => {
-      return { user: action.payload.user };
+      return { user: action.payload };
     });
 });
 export default userReducers;
