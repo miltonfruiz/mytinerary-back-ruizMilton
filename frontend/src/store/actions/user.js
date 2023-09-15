@@ -71,9 +71,9 @@ const register = createAsyncThunk("register", async (payload) => {
         console.log("¡Successfully created account!");
         return response.data.user;
       })
-      .catch((error) =>
-        error.response.data.message.forEach((message) => console.log(message))
-      );
+      .catch((error) => {
+        error.response.data.message.forEach((message) => console.log(message));
+      });
     return {
       user: user,
     };

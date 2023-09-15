@@ -15,8 +15,8 @@ const {
 } = require("../middlewares/authVerification");
 const authRouter = express.Router();
 
-authRouter.post("/register", userDataVerification, hashPassword, createAccount);
 authRouter.post("/login", userVerify, passwordVerify, generatedToken, login);
+authRouter.post("/register", userDataVerification, hashPassword, createAccount);
 authRouter.post(
   "/authenticated",
   passportVerify.authenticate("jwt", { session: false }),
