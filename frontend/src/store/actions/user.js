@@ -27,7 +27,7 @@ const sign_in = createAsyncThunk("sign_in", async (payload) => {
         Toast.fire({
           icon: "success",
           title: "Signed in successfully!!!",
-        }).then(() => window.location.replace("/cities"));
+        }).then(() => window.location.replace("/"));
         return response.data.user;
       })
       .catch((error) => {
@@ -92,7 +92,7 @@ const register = createAsyncThunk("register", async (payload) => {
         Swal.fire({
           icon: "success",
           title: "¡Successfully created account!",
-        }).then(() => window.location.replace("/cities"));
+        }).then(() => window.location.replace("/"));
         return response.data.user;
       })
       .catch((error) => {

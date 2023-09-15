@@ -24,6 +24,7 @@ export default function LogIn() {
   };
   const signWithGoogle = (credentialResponse) => {
     const userData = jwtdecode(credentialResponse.credential);
+    console.log(userData);
     dispatch(
       userActions.sign_in({
         email: userData.email,
