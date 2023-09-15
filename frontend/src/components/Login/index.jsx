@@ -14,7 +14,7 @@ export default function LogIn() {
     dispatch(userActions.sign_in());
   }, []);
 
-  let handleSignIn = () => {
+  let handlerSignIn = () => {
     dispatch(
       userActions.sign_in({
         email: inputEmail.current.value,
@@ -27,7 +27,7 @@ export default function LogIn() {
     dispatch(
       userActions.sign_in({
         email: userData.email,
-        password: userData.given_name + userData.sub,
+        password: userData.sub,
       })
     );
   };
@@ -38,7 +38,7 @@ export default function LogIn() {
       </div>
       <div className="row justify-content-center d-flex divFormContainer">
         <form
-          onSubmit={handleSignIn}
+          onSubmit={handlerSignIn}
           className="col-3 align-self-center formContainer"
         >
           <div className="mb-3">
