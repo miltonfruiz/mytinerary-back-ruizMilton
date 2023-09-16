@@ -10,8 +10,10 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import userActions from "./store/actions/user";
+import LogIn from "./components/Login";
 
 const router = createBrowserRouter([
+  { path: "/login", element: <LogIn /> },
   {
     path: "/",
     element: <Layout />,

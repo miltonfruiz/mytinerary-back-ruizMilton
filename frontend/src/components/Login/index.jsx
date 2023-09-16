@@ -16,8 +16,7 @@ export default function LogIn() {
       userActions.sign_in({
         email: inputEmail.current.value,
         password: inputPassword.current.value,
-      }),
-      console.log(password)
+      })
     );
   };
   const signWithGoogle = (credentialResponse) => {
