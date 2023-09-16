@@ -34,9 +34,5 @@ const cityReducers = createReducer(initialState, (builder) => {
       const newState = { ...state, city: [action.payload.city] };
       return newState;
     });
-  // .addCase(cityActions.post_login.fulfilled, (state, action) => {
-  //   const newState = { ...state, city: action.payload.city };
-  //   return newState;
-  // });
 });
 export default cityReducers;
