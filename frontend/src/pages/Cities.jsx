@@ -9,9 +9,9 @@ export default function Cities() {
   let token = localStorage.getItem("token");
   if (!token) {
     Swal.fire({
-      icon: "error",
-      title: "Oops...",
-      text: "¡Need login to access!",
+      icon: "warning",
+      title: "¡Access Denied!",
+      text: "Need login...",
     });
     return <Navigate to={"/login"} />;
   }
