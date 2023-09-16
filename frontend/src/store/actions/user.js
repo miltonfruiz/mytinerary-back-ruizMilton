@@ -38,6 +38,7 @@ const sign_in = createAsyncThunk("sign_in", async (payload) => {
           text: errorMessages,
         });
       });
+    console.log({ password: password });
     return {
       user: user,
     };

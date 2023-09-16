@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import userActions from "../../store/actions/user";
 import "./style.css";
@@ -13,6 +13,10 @@ export default function RegisterForm() {
   let inputImages = useRef();
   let inputCountry = useRef();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(userActions.register());
+  }, []);
   let handlerRegister = (event) => {
     event.preventDefault();
     dispatch(
@@ -28,6 +32,7 @@ export default function RegisterForm() {
   };
   const signUpGoogle = (credentialResponse) => {
     let dataUser = jwtdecode(credentialResponse.credential);
+    console.log(dataUser);
     dispatch(
       userActions.register({
         name: dataUser.name,
