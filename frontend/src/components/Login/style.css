@@ -20,3 +20,8 @@
   display: flex;
   justify-self: start;
 }
+.mainLogin {
+  background: url(/public/images/2.jpg);
+  background-size: cover;
+  background-position: center;
+}

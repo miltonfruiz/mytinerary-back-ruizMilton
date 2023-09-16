@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import userActions from "../../store/actions/user";
 import "./style.css";
@@ -9,12 +9,15 @@ export default function LogIn() {
   let inputEmail = useRef();
   let inputPassword = useRef();
   const dispatch = useDispatch();
-  let handlerSignIn = () => {
+
+  let handlerSignIn = (event) => {
+    event.preventDefault();
     dispatch(
       userActions.sign_in({
         email: inputEmail.current.value,
         password: inputPassword.current.value,
-      })
+      }),
+      console.log(password)
     );
   };
   const signWithGoogle = (credentialResponse) => {
