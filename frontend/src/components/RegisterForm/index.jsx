@@ -99,7 +99,7 @@ export default function RegisterForm() {
               Image
             </label>
             <input
-              type="text"
+              type="file"
               className="form-control"
               id="inputCity"
               ref={inputImages}
@@ -110,10 +110,15 @@ export default function RegisterForm() {
               Country
             </label>
             <select id="inputState" className="form-select">
-              <option>Choose...</option>
+              <option>Choose country...</option>
               <option ref={inputCountry}>Argenina</option>
-              <option ref={inputCountry}>Brasil</option>
-              <option ref={inputCountry}>Colombia</option>
+              <option ref={inputCountry}>Brazil</option>
+              <option ref={inputCountry}>Italy</option>
+              <option ref={inputCountry}>France</option>
+              <option ref={inputCountry}>New Zealand</option>
+              <option ref={inputCountry}>Uruguay</option>
+              <option ref={inputCountry}>United State</option>
+              <option ref={inputCountry}>Spain</option>
             </select>
           </div>
           <div className="col-12 mt-2">
