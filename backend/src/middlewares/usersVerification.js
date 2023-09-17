@@ -29,9 +29,9 @@ const userSchema = Joi.object({
     "any.required": "x ¡Password required! x",
   }),
   images: Joi.string().uri().required().messages({
-    "string.uri": "x ¡Please load your URL! x",
+    "string.uri": "x ¡Please load your images! x",
     "string.empty": "x ¡The images is empty, please try again! x",
-    "any.required": "x ¡URL required! x",
+    "any.required": "x ¡Images required! x",
   }),
   country: Joi.string().min(5).max(25).messages({
     "string.min": "x ¡The country must be at least 4 characters long! x",

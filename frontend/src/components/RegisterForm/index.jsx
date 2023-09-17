@@ -99,7 +99,7 @@ export default function RegisterForm() {
               Image
             </label>
             <input
-              type="file"
+              type="text"
               className="form-control"
               id="inputCity"
               ref={inputImages}
