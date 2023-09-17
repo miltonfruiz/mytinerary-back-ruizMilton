@@ -91,13 +91,6 @@ const LINK = [
     position: "col-1",
     name: "cities",
   },
-  {
-    href: "/login",
-    styles: "btn btn-primary px-4",
-    tittle: "Login",
-    position: "col-1 login",
-    name: "login",
-  },
 ];
 
 export { IMAGES, LINK };

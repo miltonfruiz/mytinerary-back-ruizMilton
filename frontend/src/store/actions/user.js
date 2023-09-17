@@ -15,6 +15,7 @@ const sign_in = createAsyncThunk("sign_in", async (payload) => {
         const Toast = Swal.mixin({
           toast: true,
           position: "top-end",
+          heightAuto: "100px",
           showConfirmButton: false,
           timer: 3000,
           timerProgressBar: true,
@@ -71,6 +72,21 @@ const log_out = createAsyncThunk("log_out", async () => {
   try {
     axios.post("http://localhost:3000/api/user/logout").then(() => {
       localStorage.removeItem("token");
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "center",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener("mouseenter", Swal.stopTimer);
+          toast.addEventListener("mouseleave", Swal.resumeTimer);
+        },
+      });
+      Toast.fire({
+        icon: "success",
+        title: "Closing session...",
+      }).then(() => window.location.replace("/"));
     });
   } catch (error) {
     console.log(error.message);
