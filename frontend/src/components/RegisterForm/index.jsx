@@ -1,11 +1,13 @@
 import React, { useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import userActions from "../../store/actions/user";
 import "./style.css";
 import { GoogleLogin } from "@react-oauth/google";
 import jwtdecode from "jwt-decode";
+import cityActions from "../../store/actions/city";
 
 export default function RegisterForm() {
+  let cityInStore = useSelector((store) => store.cityReducer.city);
   let inputName = useRef();
   let inputLastName = useRef();
   let inputEmail = useRef();
@@ -16,6 +18,7 @@ export default function RegisterForm() {
 
   useEffect(() => {
     dispatch(userActions.register());
+    dispatch(cityActions.get_city());
   }, []);
   let handlerRegister = (event) => {
     event.preventDefault();
@@ -111,14 +114,9 @@ export default function RegisterForm() {
             </label>
             <select id="inputState" className="form-select">
               <option>Choose country...</option>
-              <option ref={inputCountry}>Argenina</option>
-              <option ref={inputCountry}>Brazil</option>
-              <option ref={inputCountry}>Italy</option>
-              <option ref={inputCountry}>France</option>
-              <option ref={inputCountry}>New Zealand</option>
-              <option ref={inputCountry}>Uruguay</option>
-              <option ref={inputCountry}>United State</option>
-              <option ref={inputCountry}>Spain</option>
+              {cityInStore.map((country) => (
+                <option ref={inputCountry}>{country.country}</option>
+              ))}
             </select>
           </div>
           <div className="col-12 mt-2">
