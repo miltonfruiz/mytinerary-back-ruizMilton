@@ -7,7 +7,7 @@ import jwtdecode from "jwt-decode";
 import cityActions from "../../store/actions/city";
 
 export default function RegisterForm() {
-  let cityInStore = useSelector((store) => store.cityReducer.city);
+  let cityInStore = useSelector((store) => store.cityReducer.city).slice(4, 12);
   let inputName = useRef();
   let inputLastName = useRef();
   let inputEmail = useRef();
