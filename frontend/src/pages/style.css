@@ -1,0 +1,8 @@
+.headerMain {
+  background: url(/public/images/2.jpg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 3px;
+  background-color: whitesmoke;
+  box-shadow: rgba(86, 228, 221, 0.856) 0px 5px 15px;
+}

@@ -11,7 +11,7 @@ export default function Nav() {
 
   return (
     <nav>
-      <div className="row justify-content-center d-flex align-items-center navContainer">
+      <div className="row justify-content-center d-flex align-items-center navContainer mt-4">
         {LINK.map((each, key) => (
           <Anchor
             key={key}

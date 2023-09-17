@@ -72,21 +72,21 @@ const IMAGES = [
 const LINK = [
   {
     href: "/",
-    styles: "me-4 text-black",
+    styles: "me-4 text-white",
     tittle: "My Tinerary",
     position: "col-5 text-start my-tinerary",
     name: "my-tinerary",
   },
   {
     href: "/",
-    styles: "me-4 text-black",
+    styles: "me-4 text-white",
     tittle: "Home",
     position: "col-1 text-end home",
     name: "home",
   },
   {
     href: "/cities",
-    styles: "me-4 text-black",
+    styles: "me-4 text-white",
     tittle: "Cities",
     position: "col-1",
     name: "cities",
