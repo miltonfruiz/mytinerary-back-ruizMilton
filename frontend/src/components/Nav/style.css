@@ -8,4 +8,8 @@
 }
 .logClass {
   font-size: 13px;
+  width: 100px;
+  border-radius: 6px;
+  background-color: whitesmoke;
+  box-shadow: rgba(64, 114, 112, 0.856) 0px 5px 15px;
 }

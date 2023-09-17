@@ -9,7 +9,6 @@ export default function LogIn() {
   let inputEmail = useRef();
   let inputPassword = useRef();
   const dispatch = useDispatch();
-
   let handlerSignIn = (event) => {
     event.preventDefault();
     dispatch(
