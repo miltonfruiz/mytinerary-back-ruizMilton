@@ -33,7 +33,7 @@ export default function Nav() {
           </a>
         ) : (
           <button
-            className="btn btn-outline-danger px-4 col-1  logClass"
+            className="btn btn-danger px-4 col-1  logClass"
             onClick={() => dispatch(userActions.log_out())}
           >
             {" "}
