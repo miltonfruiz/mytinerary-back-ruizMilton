@@ -16,7 +16,7 @@ export default function Welcome() {
         <button
           type="button"
           id="view"
-          className="btn btn-primary px-5 mb-1 viewBoton"
+          className="btn btn-info px-5 mb-1 viewBoton text-white"
         >
           <p className="viewText">Viem More</p>
 
