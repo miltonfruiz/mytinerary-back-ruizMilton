@@ -11,7 +11,6 @@ export default function Home() {
         <Header />
         <Main />
       </div>
-      <Footer />
     </>
   );
 }
