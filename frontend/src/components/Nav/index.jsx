@@ -26,7 +26,7 @@ export default function Nav() {
         {!token ? (
           <a
             href="/login"
-            className="btn btn-outline-success px-4 col-1 logClass"
+            className="btn btn-primary px-4 col-1 logClass text-white"
           >
             {" "}
             Login
