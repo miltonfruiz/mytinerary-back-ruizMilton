@@ -9,7 +9,7 @@
   padding-top: 100px;
   color: white;
   font-size: 19px;
-  text-shadow: -20px 0px 7px black;
+  text-shadow: 0px 0px 7px black;
   transition: 0.3s ease all;
 }
 .next {

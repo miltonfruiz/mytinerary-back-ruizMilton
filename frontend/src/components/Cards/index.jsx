@@ -12,7 +12,7 @@ export default function Cards({ cardLink, cardTitle, cardDescription, id }) {
   };
   return (
     <>
-      <div className="col-3 ms-1 mt-5 cardContainer">
+      <div className="col-3 mt-5 cardContainer">
         <div className="card-container">
           <img src={cardLink} alt="" className="card-img" />
           <div className="card-body">

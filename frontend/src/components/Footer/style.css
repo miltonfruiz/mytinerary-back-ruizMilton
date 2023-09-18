@@ -4,12 +4,11 @@
   align-items: center;
   justify-content: space-evenly;
   color: white;
-  text-shadow: -20px 0px 7px black;
+  text-shadow: 0px 0px 7px black;
 }
 .allRights {
   height: 50px;
   color: whitesmoke;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .insta,
 .face,
@@ -18,5 +17,5 @@
 }
 .textMern,
 .textAll {
-  text-shadow: -20px 0px 7px black;
+  text-shadow: 0px 0px 7px black;
 }

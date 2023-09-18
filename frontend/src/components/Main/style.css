@@ -1,11 +1,11 @@
 #find {
   font-size: 17px;
   font-weight: bolder;
-  text-shadow: -20px 0px 7px black;
+  text-shadow: 0px 0px 7px black;
 }
 #our {
   font-size: 11px;
-  text-shadow: -20px 0px 7px black;
+  text-shadow: 0px 0px 7px black;
 }
 .mainClass {
   height: 200px;
