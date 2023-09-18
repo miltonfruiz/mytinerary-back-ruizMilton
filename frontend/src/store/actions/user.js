@@ -1,5 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 const sign_in = createAsyncThunk("sign_in", async (payload) => {
   try {
@@ -11,12 +12,34 @@ const sign_in = createAsyncThunk("sign_in", async (payload) => {
       })
       .then((response) => {
         localStorage.setItem("token", response.data.token);
-        console.log("Successfully logged in");
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          heightAuto: "100px",
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
+          },
+        });
+
+        Toast.fire({
+          icon: "success",
+          title: "Signed in successfully!!!",
+        }).then(() => window.location.replace("/"));
         return response.data.user;
       })
-      .catch((error) =>
-        error.response.data.message.forEach((message) => console.log(message))
-      );
+      .catch((error) => {
+        let errorMessages = error.response.data.message;
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: errorMessages,
+        });
+      });
+    console.log({ password: password });
     return {
       user: user,
     };
@@ -47,8 +70,23 @@ const authenticate = createAsyncThunk("authenticate", async () => {
 });
 const log_out = createAsyncThunk("log_out", async () => {
   try {
-    axios("http://localhost:3000/api/user/logout").then((response) => {
+    axios.post("http://localhost:3000/api/user/logout").then(() => {
       localStorage.removeItem("token");
+      const Toast = Swal.mixin({
+        toast: true,
+        position: "center",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener("mouseenter", Swal.stopTimer);
+          toast.addEventListener("mouseleave", Swal.resumeTimer);
+        },
+      });
+      Toast.fire({
+        icon: "success",
+        title: "Closing session...",
+      }).then(() => window.location.replace("/"));
     });
   } catch (error) {
     console.log(error.message);
@@ -68,12 +106,20 @@ const register = createAsyncThunk("register", async (payload) => {
       })
       .then((response) => {
         localStorage.setItem("token", response.data.token);
-        console.log("¡Successfully created account!");
+        Swal.fire({
+          icon: "success",
+          title: "¡Successfully created account!",
+        }).then(() => window.location.replace("/"));
         return response.data.user;
       })
-      .catch((error) =>
-        error.response.data.message.forEach((message) => console.log(message))
-      );
+      .catch((error) => {
+        let errorMessages = error.response.data.message;
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: errorMessages,
+        });
+      });
     return {
       user: user,
     };

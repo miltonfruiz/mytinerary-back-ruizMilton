@@ -3,6 +3,7 @@ import "./style.css";
 import Carousel from "../Carousel";
 import Welcome from "../Welcome";
 import Call from "../Call";
+import Footer from "../Footer";
 
 function Main() {
   return (
@@ -10,6 +11,7 @@ function Main() {
       <Welcome />
       <Call />
       <Carousel />
+      <Footer />
     </main>
   );
 }

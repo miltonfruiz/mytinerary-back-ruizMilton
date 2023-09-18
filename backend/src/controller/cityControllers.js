@@ -1,8 +1,15 @@
 const City = require("../models/City");
 
 const getCity = async (req, res) => {
+  const queryParams = {};
+  if (req.query.city) {
+    queryParams.city = { $regex: req.query.city, $options: "i" };
+  }
+  if (req.query.country) {
+    queryParams.country = { $regex: req.query.country, $options: "i" };
+  }
   try {
-    const city = await City.find().populate("itineraries");
+    const city = await City.find(queryParams).populate("itineraries");
     res.status(200).json(city);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -13,20 +20,6 @@ const getCityId = async (req, res) => {
     let { id } = req.params;
     let foundCity = await City.findById(id).populate("itineraries");
     res.status(200).json(foundCity);
-  } catch (error) {
-    res.status(500).json({ message: error });
-  }
-};
-const getOneCity = async (req, res) => {
-  try {
-    let { city } = req.params;
-    let fooundedCity = await City.findOne({ city: city }).populate(
-      "itineraries"
-    );
-    res.status(200).json({
-      message: "The city has been founded successfully!",
-      city: fooundedCity.city,
-    });
   } catch (error) {
     res.status(500).json({ message: error });
   }
@@ -81,5 +74,4 @@ module.exports = {
   postCity,
   deleteCity,
   updateCity,
-  getOneCity,
 };

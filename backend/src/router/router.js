@@ -6,7 +6,6 @@ const {
   postCity,
   deleteCity,
   updateCity,
-  getOneCity,
 } = require("../controller/cityControllers");
 const { cityDataVerification } = require("../middlewares/cityVerification");
 
@@ -23,21 +22,50 @@ const {
 } = require("../middlewares/itineraryVerification");
 
 const authRouter = require("./auth");
+const { passportVerify } = require("../middlewares/authVerification");
 
-router.get("/city", getCity);
-router.get("/city/:id", getCityId);
-router.get("/city/:city", getOneCity);
-router.post("/city", cityDataVerification, postCity);
-router.delete("/city", cityDataVerification, deleteCity);
-router.put("/city", cityDataVerification, updateCity);
+router.get("/cities", getCity);
+router.get("/cities/:id", getCityId);
+router.post(
+  "/cities",
+  passportVerify.authenticate("jwt", { session: false }),
+  cityDataVerification,
+  postCity
+);
+router.delete(
+  "/cities",
+  passportVerify.authenticate("jwt", { session: false }),
+  cityDataVerification,
+  deleteCity
+);
+router.put(
+  "/cities",
+  passportVerify.authenticate("jwt", { session: false }),
+  cityDataVerification,
+  updateCity
+);
 
 router.get("/itinerary", getItineraries);
 router.get("/itinerary/:city", getItinerariesCity);
 router.get("/itinerary/:id", getItineraryId);
-router.post("/itinerary", itineraryDataVerification, postItinerary);
-router.put("/itinerary", itineraryDataVerification, putItinerary);
-router.delete("/itinerary", itineraryDataVerification, deleteItinerary);
-
+router.post(
+  "/itinerary",
+  passportVerify.authenticate("jwt", { session: false }),
+  itineraryDataVerification,
+  postItinerary
+);
+router.put(
+  "/itinerary",
+  passportVerify.authenticate("jwt", { session: false }),
+  itineraryDataVerification,
+  putItinerary
+);
+router.delete(
+  "/itinerary",
+  passportVerify.authenticate("jwt", { session: false }),
+  itineraryDataVerification,
+  deleteItinerary
+);
 router.use("/user", authRouter);
 
 module.exports = router;

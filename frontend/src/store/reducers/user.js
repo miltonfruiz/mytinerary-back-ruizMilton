@@ -3,12 +3,8 @@ import userActions from "../actions/user";
 
 const initialState = {
   user: {
-    name: "",
-    lastName: "",
     email: "",
     _id: "",
-    images: "",
-    country: "",
   },
 };
 const userReducers = createReducer(initialState, (builder) => {
@@ -23,7 +19,7 @@ const userReducers = createReducer(initialState, (builder) => {
       return initialState;
     })
     .addCase(userActions.register.fulfilled, (state, action) => {
-      return { user: action.payload, user };
+      return { user: action.payload.user };
     });
 });
 export default userReducers;

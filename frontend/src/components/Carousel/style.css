@@ -5,10 +5,12 @@
 }
 .popularTitle {
   margin-top: 150px;
-  margin-bottom: 100px;
+  margin-bottom: 70px;
   padding-top: 100px;
   color: white;
-  font-size: 21px;
+  font-size: 19px;
+  text-shadow: 0px 0px 7px black;
+  transition: 0.3s ease all;
 }
 .next {
   position: relative;
@@ -42,12 +44,11 @@
   border: transparent;
 }
 .section {
-  background: url(/public/images/ala.jpg);
-  background-size: cover;
-  background-position: center;
-  border-radius: 5px;
   height: 800px;
   margin: auto;
   margin-top: 200px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.popularTitle:hover {
+  transition: 2s;
+  translate: 5px;
 }

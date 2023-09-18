@@ -3,12 +3,12 @@ import { FaHandPointer } from "react-icons/fa";
 
 export default function Welcome() {
   return (
-    <div className="justify-content-center d-flex align-items-center mainClass col-8">
-      <div className="col-6 text-start ">
-        <h3 className="col-8 mb-4" id="find">
+    <div className="justify-content-center d-flex align-items-center mainClass row">
+      <div className="col-4 text-start ">
+        <h4 className="col-8 mb-4 text-white" id="find">
           Find the perfect destination
-        </h3>
-        <h6 className="col-8 mb-4 text-start" id="our">
+        </h4>
+        <h6 className="col-8 mb-4 text-start text-white" id="our">
           Our app will help you find the perfect path for your next trip. With
           an easy-to-use interface and a host of itinerary options, planning
           your next trip has never been easier.
@@ -16,7 +16,7 @@ export default function Welcome() {
         <button
           type="button"
           id="view"
-          className="btn btn-primary px-5 mb-1 viewBoton"
+          className="btn btn-info px-5 mb-1 viewBoton text-white"
         >
           <p className="viewText">Viem More</p>
 
