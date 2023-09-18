@@ -1,6 +1,13 @@
 #my-tinerary {
   font-size: 15px;
 }
+.my-tinerary {
+  transition: 0.3s ease all;
+}
+.my-tinerary:hover {
+  transition: 2s;
+  translate: 10px;
+}
 #home,
 #cities,
 #login {
