@@ -4,6 +4,7 @@ import userActions from "../../store/actions/user";
 import "./style.css";
 import { GoogleLogin } from "@react-oauth/google";
 import jwtdecode from "jwt-decode";
+import Header from "../Header";
 
 export default function LogIn() {
   let inputEmail = useRef();
@@ -31,6 +32,7 @@ export default function LogIn() {
   return (
     <>
       <div className="loginContainer mt-0">
+        <Header />
         <div className="row justify-content-center d-flex ">
           <h2 className="col-8 mt-5 mb-5 text-white loginText">Login</h2>
         </div>
