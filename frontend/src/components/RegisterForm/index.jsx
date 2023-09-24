@@ -5,6 +5,7 @@ import "./style.css";
 import { GoogleLogin } from "@react-oauth/google";
 import jwtdecode from "jwt-decode";
 import cityActions from "../../store/actions/city";
+import Header from "../Header";
 
 export default function RegisterForm() {
   let cityInStore = useSelector((store) => store.cityReducer.city).slice(4, 12);
@@ -49,6 +50,7 @@ export default function RegisterForm() {
   return (
     <>
       <div className="registerContainer">
+        <Header />
         <div className="row justify-content-center d-flex ">
           <h2 className="col-8 mt-5 mb-5 text-white registerText">Register</h2>
         </div>
